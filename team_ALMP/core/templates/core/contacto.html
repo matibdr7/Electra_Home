@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectraHome - Contacto</title>
+    <link rel="stylesheet" href="{% static 'css/stylesContacto.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="container">
+        <header class="bg-dark text-light text-center p-4">
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="container d-flex align-items-center">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <div class="dropdown">
+                            <a href="#" class="d-flex align-items-center" id="logoDropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="{% static 'img/iconosTarjetas/Logo.png' %}" alt="Logo Electra Home" width="100px"
+                                    height="100">
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="logoDropdown">
+                                <li><a class="dropdown-item" href="{% url 'home'%}">Home</a></li>
+                                <li><a class="dropdown-item" href="{% url 'acercade'%}">Acerca de</a></li>
+                                <li><a class="dropdown-item" href="{% url 'contacto'%}">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <form class="d-flex ms-3" style="flex-grow: 1;">
+                        <input class="form-control me-2" type="search" placeholder="Buscar...">
+                        <button class="btn btn-outline-light" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+
+        <section id="content">
+            
+            <section class="mb-5">
+                <h2>Contactanos</h2>
+                    <div id="Fundadores" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                        <!-- Integrante 1 -->
+                        <div class="carousel-item active">
+                            <div class="d-flex flex-column align-items-center text-center">
+                            <img src="{% static 'img/integrantes/Santiago.png' %}" class="rounded-circle mb-3" alt="Foto de Avellaneda" width="150" height="150">
+                            <h5>Avellaneda, Santiago Fernando</h5>
+                            <p><strong>Desarrollador Web</strong></p>
+                            <p><strong>Teléfono: 3884977230</strong></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Integrante 2 -->
+                        <div class="carousel-item">
+                            <div class="d-flex flex-column align-items-center text-center">
+                            <img src="{% static 'img/integrantes/Matias.png' %}" class="rounded-circle mb-3" alt="Foto de Javier Sánchez" width="150" height="150">
+                            <h5>Balderrama, Cesar Matias</h5>
+                            <p><strong>Desarrollador Web</strong></p>
+                            <p><strong>Teléfono: 3885795638</strong></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Integrante 3 -->
+                        <div class="carousel-item">
+                            <div class="d-flex flex-column align-items-center text-center">
+                            <img src="{% static 'img/integrantes/Foto John.png' %}" class="rounded-circle mb-3" alt="Foto de Camila López" width="150" height="150">
+                            <h5>Geronimo, John Michael</h5>
+                            <p><strong>Desarrollador Web</strong></p>
+                            <p><strong>Teléfono: 3883290840</strong></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Integrante 4 -->
+                        <div class="carousel-item">
+                            <div class="d-flex flex-column align-items-center text-center">
+                            <img src="{% static 'img/integrantes/Felipe.png' %}" class="rounded-circle mb-3" alt="Foto de Luis Fernández" width="150" height="150">
+                            <h5>Quiroga, Felipe Leandro</h5>
+                            <p><strong>Desarrollador Web</strong></p>
+                            <p><strong>Teléfono: 3885926581</strong></p>
+                            </div>
+                        </div>
+                        </div>
+    
+                        <button class="carousel-control-prev" type="button" data-bs-target="#Fundadores" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#Fundadores" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </section>   
+        </section>
+
+        <footer class="bg-dark text-light text-center p-4">
+            <p>Contáctanos:</p>
+            <p>Email: electrohomejujuy@gmail.com | Teléfono: +54 9 388 472-6112</p>
+            <div>
+            <a href="https://www.facebook.com/profile.php?id=61567917539965&mibextid=kFxxJD" class="text-light me-3">Facebook</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
