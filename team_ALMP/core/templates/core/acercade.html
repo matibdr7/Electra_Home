@@ -8,107 +8,104 @@
     <title>ElectraHome - Acerca de</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="bg-dark text-light">
-    <header>
-        <div class="container d-flex align-items-center">
-            <!-- El flex hace que la barra de búsqueda esté al lado del logo -->
-
-            <!-- logo -->
-            <div class="d-flex justify-content-start align-items-center">
-                <!-- Logo con Menú Desplegable -->
-                <div class="dropdown">
-                    <a href="#" class="d-flex align-items-center" id="logoDropdown" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <img src="{% static 'img/iconosTarjetas/Logo.png' %}" alt="Logo Electra Home" width="150"
-                            height="150">
-                    </a>
-                    <!-- Menú desplegable -->
-                    <ul class="dropdown-menu" aria-labelledby="logoDropdown">
-                        <li><a class="dropdown-item" href="{% url 'home' %}">Home</a></li>
-                        <li><a class="dropdown-item" href="{% url 'acercade' %}">Acerca de</a></li>
-                        <li><a class="dropdown-item" href="{% url 'contacto' %}">Contacto</a></li>
-                    </ul>
-
+    <div id="container">
+        <header>
+            <div class="container d-flex align-items-center">
+                <!-- El flex hace que la barra de búsqueda esté al lado del logo -->
+    
+                <!-- logo -->
+                <div class="d-flex justify-content-start align-items-center">
+                    <!-- Logo con Menú Desplegable -->
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center" id="logoDropdown" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="{% static 'img/iconosTarjetas/Logo.png' %}" alt="Logo Electra Home" width="150"
+                                height="150">
+                        </a>
+                        <!-- Menú desplegable -->
+                        <ul class="dropdown-menu" aria-labelledby="logoDropdown">
+                            <li><a class="dropdown-item" href="{% url 'home' %}">Home</a></li>
+                            <li><a class="dropdown-item" href="{% url 'acercade' %}">Acerca de</a></li>
+                            <li><a class="dropdown-item" href="{% url 'contacto' %}">Contacto</a></li>
+                        </ul>
+    
+                    </div>
                 </div>
+    
+                <!-- Formulario de búsqueda -->
+                <form class="d-flex ms-3" style="flex-grow: 1;">
+                    <input class="form-control me-2" type="search" placeholder="Buscar...">
+                    <button class="btn btn-outline-light" type="submit">Buscar</button>
+                </form>
             </div>
+        </header>
 
-            <!-- Formulario de búsqueda -->
-            <form class="d-flex ms-3" style="flex-grow: 1;">
-                <input class="form-control me-2" type="search" placeholder="Buscar...">
-                <button class="btn btn-outline-light" type="submit">Buscar</button>
-            </form>
-        </div>
-    </header>
-
-    <!-- Contenido de la Página "Acerca de" -->
-    <main class="container my-5">
-        <h1 class="text-center mb-4">Acerca de Nosotros</h1>
-        
-        <!-- Descripción del negocio -->
-        <section class="mb-5">
-            <h2>Descripción del Negocio</h2>
-            <p>Somos una empresa dedicada a la venta de electrodomésticos, comprometidos en brindar productos/servicios de alta calidad para satisfacer las necesidades de nuestros clientes.</p>
-        </section>
-        
-        <!-- Historia y Visión -->
-        <section class="mb-5">
-            <h2>Historia y Visión</h2>
-            <p>Nuestra empresa fue fundada en 2024 con la visión de brindar el mejor servicio de ventas al cliente. Desde entonces, hemos trabajado para hacer realidad nuestra misión y adaptarnos a los cambios del mercado.</p>
-        </section>
-        
-        <!-- Valores de la Empresa -->
-        <section class="mb-5">
-            <h2>Valores de la Empresa</h2>
-            <ul>
-                <li><strong>Integridad:</strong> Trabajamos con honestidad y transparencia.</li>
-                <li><strong>Innovación:</strong> Nos esforzamos por mejorar continuamente.</li>
-                <li><strong>Responsabilidad:</strong> Asumimos el compromiso de brindar calidad y excelencia.</li>
-                <!-- Agrega más valores según sea necesario -->
-            </ul>
-        </section>
-        
-       <!-- Equipo de Fundadores -->
-<section class="mb-5">
-    <h2>Equipo de Fundadores</h2>
-    <div class="row justify-content-center">
-        <!-- Ejemplo de un integrante -->
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
-            <img src="{% static 'img/integrantes/Foto John.png' %}" alt="John Geronimo" class="rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
-            <h4 class="h6">John Michael Gerónimo</h4>
-            <p class="small">Desarrollador Web</p>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
-            <img src="{% static 'img/integrantes/Felipe.png' %}" alt="Felipe Quiroga" class="rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
-            <h4 class="h6">Felipe Quiroga</h4>
-            <p class="small">Desarrollador Web</p>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
-            <img src="{% static 'img/integrantes/Santiago.png' %}" alt="Santiago Avellaneda" class="rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
-            <h4 class="h6">Santiago Avellaneda</h4>
-            <p class="small">Desarrollador Web</p>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
-            <img src="{% static 'img/integrantes/Matias.png' %}" alt="Matias" class="rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
-            <h4 class="h6">Matias </h4>
-            <p class="small">Desarrollador Web</p>
-        </div>
-    </div>
-</section>
-
-
-        <!-- Video de YouTube -->
-        <section class="mb-5">
-            <h2>Propósito del Negocio</h2>
-            <div class="ratio ratio-16x9"style="max-width: 600px margin: auto;">
-                <iframe src="https://www.youtube.com/embed/8MFAvMgtw4s" title="YouTube video" allowfullscreen></iframe>
-            </div>
+        <section id="content">
+            <h1 class="text-center mb-4">Acerca de Nosotros</h1>
             
-        </section>
-    </main>
+            <!-- Descripción del negocio -->
+            <section class="mb-5">
+                <h2>Descripción del Negocio</h2>
+                <p>Somos una empresa dedicada a la venta de electrodomésticos, comprometidos en brindar productos/servicios de alta calidad para satisfacer las necesidades de nuestros clientes.</p>
+            </section>
+            
+            <!-- Historia y Visión -->
+            <section class="mb-5">
+                <h2>Historia y Visión</h2>
+                <p>Nuestra empresa fue fundada en 2024 con la visión de brindar el mejor servicio de ventas al cliente. Desde entonces, hemos trabajado para hacer realidad nuestra misión y adaptarnos a los cambios del mercado.</p>
+            </section>
+            
+            <!-- Valores de la Empresa -->
+            <section class="mb-5">
+                <h2>Valores de la Empresa</h2>
+                <ul>
+                    <li><strong>Integridad:</strong> Trabajamos con honestidad y transparencia.</li>
+                    <li><strong>Innovación:</strong> Nos esforzamos por mejorar continuamente.</li>
+                    <li><strong>Responsabilidad:</strong> Asumimos el compromiso de brindar calidad y excelencia.</li>
+                    <!-- Agrega más valores según sea necesario -->
+                </ul>
+            </section>
 
-    <!-- Footer con Datos de Contacto -->
-    <footer class="text-light text-center p-4">
+            <section class="mb-5">
+                <h2>Equipo de Fundadores</h2>
+                <div class="row justify-content-center">
+                    <!-- Ejemplo de un integrante -->
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="{% static 'img/integrantes/Foto John.png' %}" alt="John Geronimo" class="rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h4 class="h6">John Michael Gerónimo</h4>
+                        <p class="small">Desarrollador Web</p>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="{% static 'img/integrantes/Felipe.png' %}" alt="Felipe Quiroga" class="rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h4 class="h6">Felipe Quiroga</h4>
+                        <p class="small">Desarrollador Web</p>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="{% static 'img/integrantes/Santiago.png' %}" alt="Santiago Avellaneda" class="rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h4 class="h6">Santiago Avellaneda</h4>
+                        <p class="small">Desarrollador Web</p>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                        <img src="{% static 'img/integrantes/Matias.png' %}" alt="Matias" class="rounded-circle mb-2" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h4 class="h6">Matias </h4>
+                        <p class="small">Desarrollador Web</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2>Propósito del Negocio</h2>
+                <div class="ratio ratio-16x9"style="max-width: 600px margin: auto;">
+                    <iframe src="https://www.youtube.com/embed/8MFAvMgtw4s" title="YouTube video" allowfullscreen></iframe>
+                </div>
+                
+            </section>
+        </section>
+
+        <footer class="text-light text-center p-4">
             <div>
                 <img src="{% static 'img/iconos-footer/atencion al cliente.png' %}" alt="Atención al Cliente" style="width: 30px; height: 30px;">
                 <h4 style="font-size: 14px; margin-top: 10px;">ATENCIÓN AL CLIENTE</h4>
@@ -132,8 +129,8 @@
                 <p style="font-size: 12px;"><img src="{% static 'img/iconos-footer/facebook.png' %}" alt="Facebook" style="width: 15px; vertical-align: middle;"> ElectraHome</p>
                 <p style="font-size: 12px;"><img src="{% static 'img/iconos-footer/instagram.png' %}" alt="Instagram" style="width: 15px; vertical-align: middle;"> ElectraHome_Oficial</p>
             </div>
-    </footer>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
 </body>
 </html>
