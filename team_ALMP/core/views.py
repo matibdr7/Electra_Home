@@ -6,4 +6,4 @@ def home(request):
 # Create your views here.
 
 def acercade(request):
-    return render(request, "core/acercade.html")
+    return render(request, 'core/acercade.html')

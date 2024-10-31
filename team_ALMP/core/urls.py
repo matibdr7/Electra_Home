@@ -5,5 +5,5 @@ from . import views
 
 urlpatterns = [
     path('', views.home),
-    path('acercade/', views.acercade),
+    path('acerca-de', views.acercade, name="acercade"),
 ]
