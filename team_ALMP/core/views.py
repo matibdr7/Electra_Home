@@ -7,3 +7,6 @@ def home(request):
 
 def acercade(request):
     return render(request, 'core/acercade.html')
+
+def contacto(request):
+    return render(request, 'core/contacto.html')
