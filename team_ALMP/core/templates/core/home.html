@@ -18,8 +18,9 @@
             max-width: 500px;
             /* Ancho máximo del carrusel */
             margin: 25px auto;
+            margin-left: 59%;
             /* Centramos el contenedor con márgenes */
-            margin-right: 590px;
+            /* margin-right: 590px; */
             border: 2px solid #ccc;
             /* Borde del cuadro */
             border-radius: 10px;
@@ -48,30 +49,10 @@
             /* Asegura que la imagen se muestre como bloque */
             margin: 0;
             /* Elimina márgenes innecesarios */
-        }
+        }   
 
-        .categorias {
-            display: flex;
-            /* Usar flexbox para alinear los enlaces */
-            justify-content: center;
-            /* Centrar horizontalmente los enlaces */
-            flex-wrap: wrap;
-            /* Permitir que los enlaces se envuelvan en múltiples líneas si es necesario */
-        }
-
-        .categorias a {
-            margin: 0 15px;
-            /* Espaciado de 10px a los lados de cada enlace */
-            text-decoration: none;
-            /* Quitar el subrayado de los enlaces */
-            color: #000;
-            /* Cambiar el color del texto, si lo deseas */
-            font-size: 30px;
-        }
-
-        .categorias a:hover {
-            text-decoration: underline;
-            /* Agregar subrayado solo al pasar el mouse, si lo deseas */
+        .navbar {
+            margin: auto;
         }
 
         footer {
@@ -143,13 +124,16 @@
             </form>
         </div>
     </nav>
-    <div class="categorias">
-        <a href="#">ELECTRODOMÉSTICOS</a>
-        <a href="#">TELEVISIONES</a>
-        <a href="#">AUDIO Y VIDEO</a>
-        <a href="#">COMPUTADORAS</a>
-        <a href="#">CELULARES</a>
-        <a href="#">OFERTAS</a>
+
+    <div class="container my-3">
+        <div class="d-flex flex-wrap justify-content-center bg-dark p-0 rounded">
+            <a href="#" class="btn btn-outline-light m-2">ELECTRODOMÉSTICOS</a>
+            <a href="#" class="btn btn-outline-light m-2">TELEVISIONES</a>
+            <a href="#" class="btn btn-outline-light m-2">AUDIO Y VIDEO</a>
+            <a href="#" class="btn btn-outline-light m-2">COMPUTADORAS</a>
+            <a href="#" class="btn btn-outline-light m-2">CELULARES</a>
+            <a href="#" class="btn btn-outline-light m-2">OFERTAS</a>
+        </div>
     </div>
 
     <!-- Carrusel -->
@@ -177,7 +161,36 @@
         </div>
     </div>
     <!------ Fin del carrusel -------->
-
+    <footer style="background-color: #1c1c1c; color: #fff; padding: 20px 0;">
+        <div style="display: flex; justify-content: space-around; text-align: center; max-width: 1200px; margin: auto;">
+            
+            <!-- Atención al Cliente -->
+            <div>
+                <img src="{% static 'img/iconos-footer/atencion al cliente.png' %}" alt="Atención al Cliente" style="width: 30px; height: 30px;">
+                <h4 style="font-size: 14px; margin-top: 10px;">ATENCIÓN AL CLIENTE</h4>
+                <p style="font-size: 12px;">388-3290840</p>
+                <p style="font-size: 12px;">.............</p>
+            </div>
+    
+            <!-- Sucursal -->
+            <div>
+                <img src="{% static 'img/iconos-footer/edificio.png' %}" alt="Sucursal" style="width: 30px; height: 30px;">
+                <h4 style="font-size: 14px; margin-top: 10px;">SUCURSAL</h4>
+                <p style="font-size: 12px;">Curupaiti 297</p>
+                <p style="font-size: 12px;">Av. Lavalle 180</p>
+            </div>
+    
+            <!-- Datos de Contacto -->
+            <div>
+                <img src="{% static 'img/iconos-footer/telefono.png' %}" alt="Datos de Contacto" style="width: 30px; height: 30px;">
+                <h4 style="font-size: 14px; margin-top: 10px;">DATOS DE CONTACTO</h4>
+                <p style="font-size: 12px;"><img src="{% static 'img/iconos-footer/correo.png' %}" alt="Email" style="width: 15px; vertical-align: middle;"> contacto@electrahome.com</p>
+                <p style="font-size: 12px;"><img src="{% static 'img/iconos-footer/facebook.png' %}" alt="Facebook" style="width: 15px; vertical-align: middle;"> ElectraHome</p>
+                <p style="font-size: 12px;"><img src="{% static 'img/iconos-footer/instagram.png' %}" alt="Instagram" style="width: 15px; vertical-align: middle;"> ElectraHome_Oficial</p>
+            </div>
+    
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous">
