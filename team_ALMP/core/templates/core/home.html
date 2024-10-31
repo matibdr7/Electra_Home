@@ -48,31 +48,7 @@
             /* Asegura que la imagen se muestre como bloque */
             margin: 0;
             /* Elimina márgenes innecesarios */
-        }
-
-        .categorias {
-            display: flex;
-            /* Usar flexbox para alinear los enlaces */
-            justify-content: center;
-            /* Centrar horizontalmente los enlaces */
-            flex-wrap: wrap;
-            /* Permitir que los enlaces se envuelvan en múltiples líneas si es necesario */
-        }
-
-        .categorias a {
-            margin: 0 15px;
-            /* Espaciado de 10px a los lados de cada enlace */
-            text-decoration: none;
-            /* Quitar el subrayado de los enlaces */
-            color: #000;
-            /* Cambiar el color del texto, si lo deseas */
-            font-size: 30px;
-        }
-
-        .categorias a:hover {
-            text-decoration: underline;
-            /* Agregar subrayado solo al pasar el mouse, si lo deseas */
-        }
+        }   
 
         footer {
             display: flex;
@@ -143,13 +119,16 @@
             </form>
         </div>
     </nav>
-    <div class="categorias">
-        <a href="#">ELECTRODOMÉSTICOS</a>
-        <a href="#">TELEVISIONES</a>
-        <a href="#">AUDIO Y VIDEO</a>
-        <a href="#">COMPUTADORAS</a>
-        <a href="#">CELULARES</a>
-        <a href="#">OFERTAS</a>
+
+    <div class="container my-3">
+        <div class="d-flex flex-wrap justify-content-center bg-dark p-0 rounded">
+            <a href="#" class="btn btn-outline-light m-2">ELECTRODOMÉSTICOS</a>
+            <a href="#" class="btn btn-outline-light m-2">TELEVISIONES</a>
+            <a href="#" class="btn btn-outline-light m-2">AUDIO Y VIDEO</a>
+            <a href="#" class="btn btn-outline-light m-2">COMPUTADORAS</a>
+            <a href="#" class="btn btn-outline-light m-2">CELULARES</a>
+            <a href="#" class="btn btn-outline-light m-2">OFERTAS</a>
+        </div>
     </div>
 
     <!-- Carrusel -->
