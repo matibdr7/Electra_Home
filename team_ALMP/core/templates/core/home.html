@@ -1,32 +1,185 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #9b9b9b;
+        }
+
+        .carousel-container {
+            max-width: 500px;
+            /* Ancho máximo del carrusel */
+            margin: 25px auto;
+            /* Centramos el contenedor con márgenes */
+            margin-right: 590px;
+            border: 2px solid #ccc;
+            /* Borde del cuadro */
+            border-radius: 10px;
+            /* Esquinas redondeadas */
+            overflow: hidden;
+            /* Evita el desbordamiento del contenido */
+            padding: 0;
+            /* Asegura que no haya relleno */
+        }
+
+        .carousel-inner {
+            display: flex;
+            /* Permite alinear horizontalmente */
+            justify-content: flex-start;
+            /* Alinea el contenido a la izquierda */
+        }
+
+        .carousel-item img {
+            width: 100%;
+            /* Mantiene el ancho al 100% del contenedor */
+            height: auto;
+            /* Mantiene la proporción de la imagen */
+            object-fit: contain;
+            /* Ajusta la imagen sin recortar */
+            display: block;
+            /* Asegura que la imagen se muestre como bloque */
+            margin: 0;
+            /* Elimina márgenes innecesarios */
+        }
+
+        .categorias {
+            display: flex;
+            /* Usar flexbox para alinear los enlaces */
+            justify-content: center;
+            /* Centrar horizontalmente los enlaces */
+            flex-wrap: wrap;
+            /* Permitir que los enlaces se envuelvan en múltiples líneas si es necesario */
+        }
+
+        .categorias a {
+            margin: 0 15px;
+            /* Espaciado de 10px a los lados de cada enlace */
+            text-decoration: none;
+            /* Quitar el subrayado de los enlaces */
+            color: #000;
+            /* Cambiar el color del texto, si lo deseas */
+            font-size: 30px;
+        }
+
+        .categorias a:hover {
+            text-decoration: underline;
+            /* Agregar subrayado solo al pasar el mouse, si lo deseas */
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            /* Centra horizontalmente */
+            flex-wrap: wrap;
+            /* Permite que los elementos se ajusten en varias líneas */
+            background-color: transparentSUCU;
+            /* Color de fondo del footer */
+            padding: 20px;
+            /* Espacio interior */
+        }
+
+        footer>div {
+            flex: 1;
+            /* Cada div tomará el mismo ancho */
+            max-width: 250px;
+            /* Ancho máximo para cada sección */
+            text-align: center;
+            /* Centra el texto dentro de cada div */
+            margin: 10px;
+            /* Espacio entre cada sección */
+        }
+
+        footer img {
+            max-width: 100%;
+            /* Asegura que las imágenes no excedan el ancho del contenedor */
+            height: auto;
+            /* Mantiene la relación de aspecto */
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            /* Espacio debajo del título */
+        }
+    </style>
 </head>
+
 <body class="bg-dark">
-    <nav class="navbar navbar-black bg-dark bg-gradient">
-        <div class="container d-flex align-items-center"> <!-- El flex hace que la barra de busqueda este alado del logo -->
-            <!-- Aqui ponemo el logo -->
-            <a href="#" class="d-flex align-items-center" id="logoDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{% static 'img/iconosTarjetas/Logo.png' %}" alt="Electra Home Logo" style="width: 100px; height: 100px;">
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="logoDropdown">
-                <li><a class="dropdown-item" href="#">Home</a></li>
-                <li><a class="dropdown-item" href="#">Acerca de</a></li>
-                <li><a class="dropdown-item" href="#">Contacto</a></li>
-            </ul>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container d-flex align-items-center">
+            <!-- El flex hace que la barra de búsqueda esté al lado del logo -->
+
+            <!-- logo -->
+            <div class="d-flex justify-content-start align-items-center">
+                <!-- Logo con Menú Desplegable -->
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center" id="logoDropdown" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="{% static 'img/iconosTarjetas/Logo.png' %}" alt="Logo Electra Home" width="150"
+                            height="150">
+                    </a>
+                    <!-- Menú desplegable -->
+                    <ul class="dropdown-menu" aria-labelledby="logoDropdown">
+                        <li><a class="dropdown-item" href="#">Home</a></li>
+                        <li><a class="dropdown-item" href="#">Acerca de</a></li>
+                        <li><a class="dropdown-item" href="#">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+
             <!-- Formulario de búsqueda -->
-            <form class="d-flex ms-3" style="flex-grow: 1;"> <!-- el ms es el margen -->
+            <form class="d-flex ms-3" style="flex-grow: 1;">
                 <input class="form-control me-2" type="search" placeholder="Buscar...">
-                <button class="btn btn-outline-light" type="submit">Buscar</button> <!-- Boton de enviar -->
+                <button class="btn btn-outline-light" type="submit">Buscar</button>
             </form>
         </div>
     </nav>
+    <div class="categorias">
+        <a href="#">ELECTRODOMÉSTICOS</a>
+        <a href="#">TELEVISIONES</a>
+        <a href="#">AUDIO Y VIDEO</a>
+        <a href="#">COMPUTADORAS</a>
+        <a href="#">CELULARES</a>
+        <a href="#">OFERTAS</a>
+    </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Carrusel -->
+    <div class="carousel-container">
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'img/batidora.webp' %}" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/bicicleta.webp' %}" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/cafera2.webp' %}" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!------ Fin del carrusel --------->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
