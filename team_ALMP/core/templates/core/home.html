@@ -9,15 +9,15 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <div class="container d-flex align-items-center"> <!-- Contenedor flex para alinear horizontalmente -->
+        <div class="container d-flex align-items-center"> <!-- El flex hace que la barra de busqueda este alado del logo -->
     
-            <!-- Logo de la empresa -->
+            <!-- Aqui ponemo el logo -->
             <img src="{% static 'img/iconosTarjetas/Logo.png' %}" alt="Electra Home Logo" style="width: 100px; height: 100px;">
     
             <!-- Formulario de búsqueda -->
-            <form class="d-flex ms-3" style="flex-grow: 1;"> <!-- Cambiado a ms-3 para margen a la izquierda -->
-                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar"> <!-- Campo de entrada para búsqueda -->
-                <button class="btn btn-outline-light" type="submit">Buscar</button> <!-- Botón para enviar búsqueda -->
+            <form class="d-flex ms-3" style="flex-grow: 1;"> <!-- el ms es el margen -->
+                <input class="form-control me-2" type="search" placeholder="Buscar...">
+                <button class="btn btn-outline-light" type="submit">Buscar</button> <!-- Boton de enviar -->
             </form>
         </div>
     </nav>
