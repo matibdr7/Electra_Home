@@ -46,62 +46,91 @@
             </div>
         </nav>
         
-        <section id="content">
-            <section class="mb-5">
-                    <h1>Contactanos</h1>
+        <section id="title" class="container my-5">
+            <h1 class ="text-center"> A.L.M.P</h1>
+        </section>
+
+        <section id="content" class="container my-5">
+            <div class="row">
+                
+                <div class="col-md-6 mb-5">
+                    <h2 class = "text-center">Contáctanos</h2>
                     <div id="Fundadores" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                        <!-- Integrante 1 -->
-                        <div class="carousel-item active">
-                            <div class="d-flex flex-column align-items-center text-center">
-                            <img src="{% static 'img/integrantes/Santiago.png' %}" class="rounded-circle mb-3" alt="Foto de Avellaneda" width="150" height="150">
-                            <h5>Avellaneda, Santiago Fernando</h5>
-                            <p><strong>Desarrollador Web</strong></p>
-                            <p><strong>Teléfono: 3884977230</strong></p>
+                            
+                            <div class="carousel-item active">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="{% static 'img/integrantes/Santiago.png' %}" class="rounded-circle mb-3" alt="Foto de Avellaneda" width="150" height="150">
+                                    <h5>Avellaneda, Santiago Fernando</h5>
+                                    <p><strong>Desarrollador Web</strong></p>
+                                    <p><strong>Teléfono: 3884977230</strong></p>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-item">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="{% static 'img/integrantes/Matias.png' %}" class="rounded-circle mb-3" alt="Foto de Javier Sánchez" width="150" height="150">
+                                    <h5>Balderrama, Cesar Matias</h5>
+                                    <p><strong>Desarrollador Web</strong></p>
+                                    <p><strong>Teléfono: 3885795638</strong></p>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-item">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="{% static 'img/integrantes/Foto John.png' %}" class="rounded-circle mb-3" alt="Foto de Camila López" width="150" height="150">
+                                    <h5>Geronimo, John Michael</h5>
+                                    <p><strong>Desarrollador Web</strong></p>
+                                    <p><strong>Teléfono: 3883290840</strong></p>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-item">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="{% static 'img/integrantes/Felipe.png' %}" class="rounded-circle mb-3" alt="Foto de Luis Fernández" width="150" height="150">
+                                    <h5>Quiroga, Felipe Leandro</h5>
+                                    <p><strong>Desarrollador Web</strong></p>
+                                    <p><strong>Teléfono: 3885926581</strong></p>
+                                </div>
                             </div>
                         </div>
-                        
-                        <!-- Integrante 2 -->
-                        <div class="carousel-item">
-                            <div class="d-flex flex-column align-items-center text-center">
-                            <img src="{% static 'img/integrantes/Matias.png' %}" class="rounded-circle mb-3" alt="Foto de Javier Sánchez" width="150" height="150">
-                            <h5>Balderrama, Cesar Matias</h5>
-                            <p><strong>Desarrollador Web</strong></p>
-                            <p><strong>Teléfono: 3885795638</strong></p>
-                            </div>
-                        </div>
-                        
-                        <!-- Integrante 3 -->
-                        <div class="carousel-item">
-                            <div class="d-flex flex-column align-items-center text-center">
-                            <img src="{% static 'img/integrantes/Foto John.png' %}" class="rounded-circle mb-3" alt="Foto de Camila López" width="150" height="150">
-                            <h5>Geronimo, John Michael</h5>
-                            <p><strong>Desarrollador Web</strong></p>
-                            <p><strong>Teléfono: 3883290840</strong></p>
-                            </div>
-                        </div>
-                        
-                        <!-- Integrante 4 -->
-                        <div class="carousel-item">
-                            <div class="d-flex flex-column align-items-center text-center">
-                            <img src="{% static 'img/integrantes/Felipe.png' %}" class="rounded-circle mb-3" alt="Foto de Luis Fernández" width="150" height="150">
-                            <h5>Quiroga, Felipe Leandro</h5>
-                            <p><strong>Desarrollador Web</strong></p>
-                            <p><strong>Teléfono: 3885926581</strong></p>
-                            </div>
-                        </div>
-                        </div>
-    
+
                         <button class="carousel-control-prev" type="button" data-bs-target="#Fundadores" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#Fundadores" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
                         </button>
                     </div>
-                </section>   
+                </div>
+
+                
+                <div class="col-md-6 mb-5">
+                    <h2 class = "text-center">Formulario de Contacto</h2>
+                    <form action="#" method="post" class="bg-light text-dark p-4 rounded">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Asunto</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                    </form>
+                </div>
+            </div>
         </section>
 
         <footer class="text-light text-center p-4">
