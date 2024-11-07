@@ -1,5 +1,12 @@
 {% load static %}
-<!-- Modal Aspiradora -->		
+<!-- Modal Aspiradora -->
+
+<style>
+    .modal-body, .modal-content, .modal-header, .modal-footer{
+        background-color: #9b9b8e;
+        border-color: #9b9b8e;
+    }
+</style>
 <div class="modal fade" id="{{ modal_id }}" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -13,7 +20,7 @@
                 <!-- Mostrar imagen -->
                 <div class="row">
                     <div class="col-4">
-                        <img src="{{ img1_url }}" alt="{{ modal_title }}" class="img-fluid">
+                        <img src="{% static img1_url %}" alt="{{ modal_title }}" class="img-fluid">
                     </div>
                     <div class="col-4">
                         <img src="{% static img2_url %}" alt="{{ modal_title }}" class="img-fluid">
