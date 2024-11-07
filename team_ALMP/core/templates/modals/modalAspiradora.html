@@ -1,0 +1,31 @@
+{% load static %}
+<!-- Modal Aspiradora -->		
+<div class="modal fade" id="{{ modal_id }}" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">{{ modal_title }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p>{{ modal_description }}</p>
+
+                <!-- Mostrar imagen -->
+                <div class="row">
+                    <div class="col-4">
+                        <img src="{{ img1_url }}" alt="{{ modal_title }}" class="img-fluid">
+                    </div>
+                    <div class="col-4">
+                        <img src="{% static img2_url %}" alt="{{ modal_title }}" class="img-fluid">
+                    </div>
+                    <div class="col-4">
+                        <img src="{% static img3_url %}" alt="{{ modal_title }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

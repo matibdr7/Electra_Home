@@ -1,7 +1,7 @@
 from django.shortcuts import HttpResponse,render
 
 def index(request):
-    return render(request,"core/index.html")
+    return render(request, 'core/index.html')
 
 # Create your views here.
 
@@ -10,3 +10,4 @@ def acercade(request):
 
 def contacto(request):
     return render(request, 'core/contacto.html')
+
