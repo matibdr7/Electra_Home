@@ -4,153 +4,401 @@
 
 {% block title %}Home{% endblock %}
 
-{%block extra_css%} <link rel="stylesheet" href="{% static 'css/stylesIndex.css' %}"> {% endblock %}
+{%block extra_css%}
+<link rel="stylesheet" href="{% static 'css/stylesIndex.css' %}"> {% endblock %}
 
 {% block extra_style %}
 <style>
-    /* Estilo para las flechas de navegación del carrusel */
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: rgba(235, 32, 32, 0.5); /* Color de fondo blanco semi-transparente */
-        border-radius: 50%; /* Para hacer las flechas redondas */
-    }
-    .carousel-control-prev,
-    .carousel-control-next {
-        filter: invert(1); /* Cambiar el color de las flechas a blanco */
-        
-    }
+  /* Estilo para las flechas de navegación del carrusel */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: rgba(235, 32, 32, 0.5);
+    /* Color de fondo blanco semi-transparente */
+    border-radius: 70%;
+    /* Para hacer las flechas redondas */
+  }
 
-    .carousel-control-prev {
-        position: absolute ;
-        top: 50%;
-        left: 1;
-        transform: translateY(-50%);
-    }
+  .carousel-control-prev,
+  .carousel-control-next {
+    filter: invert(1);
+    /* Cambiar el color de las flechas a blanco */
 
-    .carousel-control-next {
-        position: absolute;
-        top: 50%;
-        right: 1;
-        transform: translateY(-50%);
-    }
-    * Estilos de las flechas de navegación */
-    
+  }
 
-/* Flecha izquierda */
-    .carousel-arrow.left {
-        left: -30px;
-    }
+  .carousel-control-prev {
+    position: absolute;
+    top: 50%;
+    left: 1;
+    transform: translateY(-50%);
+  }
 
-/* Flecha derecha */
-    .carousel-arrow.right {
-        right: -30px;
-    }
-    .card {
-        flex: 0 0 50%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin: 10px;
-        border-radius: 10px;
-        background-color: #fff;
-    }
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    right: 1;
+    transform: translateY(-50%);
+  }
+
+  /* Estilos de las flechas de navegación */
+
+
+  /* Flecha izquierda */
+  .carousel-arrow.left {
+    left: 50%;
+  }
+
+  /* Flecha derecha */
+  .carousel-arrow.right {
+    right: 50%;
+  }
+
+  .card {
+    flex: 0 0 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+
+  .car.car-img-top
+  {
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .card img
+  {
+    height: 450px;
+    object-fit: cover;
+  }
 </style>
 {% endblock extra_style %}
 
 
 <div class="container">
 
-    {%block content%}
+  {%block content%}
 
-        <div class="container my-3">
-            <div class="d-flex flex-wrap justify-content-center bg-dark p-0 rounded">
-                <a href="#" class="btn btn-outline-light m-2">ELECTRODOMÉSTICOS</a>
-                <a href="#" class="btn btn-outline-light m-2">TELEVISIONES</a>
-                <a href="#" class="btn btn-outline-light m-2">AUDIO Y VIDEO</a>
-                <a href="#" class="btn btn-outline-light m-2">COMPUTADORAS</a>
-                <a href="#" class="btn btn-outline-light m-2">CELULARES</a>
-                <a href="#" class="btn btn-outline-light m-2">OFERTAS</a>
-            </div>
-        </div>
-    
-    
-        <h3 class="proposito text-center text-white">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos eum possimus quis, deserunt tempora tenetur
-            quaerat minus nihil obcaecati
-            consectetur dicta impedit officia sit vero, aspernatur excepturi at esse quo.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae possimus ab, sequi voluptatibus quo quod
-            optio vero dicta voluptate.
-            Dicta, voluptates corrupti accusamus earum doloremque recusandae nobis iste excepturi aspernatur?
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad dolores odit quo qui, repudiandae distinctio
-            soluta, laborum magni sapiente
-            delectus libero in autem totam fuga minima aspernatur explicabo! Minima, exercitationem.
-        </h3>
-    
-        <!-- Carrusel -->
-        <div class="container my-5">
-            <div id="productCarousel" class="carousel slide">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <div class="col-md-5 mb-3">
-                                <div class="card">
-                                    <img src="path/to/product-image4.jpg" class="card-img-top" alt="Producto 4">
-                                    <div class="card-body p-2">
-                                        <h5 class="card-title">Aspiradora UVW</h5>
-                                        <p class="card-text">Alta potencia, sin bolsa.</p>
-                                        <p class="text-primary">$150.00</p>
-                                        <button class="btn btn-primary">Ver Más</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5 mb-3">
-                                <div class="card">
-                                    <img src="path/to/product-image3.jpg" class="card-img-top" alt="Producto 3">
-                                    <div class="card-body p-2">
-                                        <h5 class="card-title">Microondas DEF</h5>
-                                        <p class="card-text">Con grill y 900W de potencia.</p>
-                                        <p class="text-primary">$120.00</p>
-                                        <button class="btn btn-primary">Ver Más</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5 mb-3">
-                                <div class="card">
-                                    <img src="path/to/product-image5.jpg" class="card-img-top" alt="Producto 5">
-                                    <div class="card-body p-2">
-                                        <h5 class="card-title">Licuadora GHI</h5>
-                                        <p class="card-text">Velocidad ajustable, 1.5L.</p>
-                                        <p class="text-primary">$80.00</p>
-                                        <button class="btn btn-primary">Ver Más</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5 mb-3">
-                                <div class="card">
-                                    <img src="path/to/product-image6.jpg" class="card-img-top" alt="Producto 6">
-                                    <div class="card-body p-2">
-                                        
-                                        <h5 class="card-title">Tostadora JKL</h5>
-                                        <p class="card-text">Capacidad para 2 rebanadas.</p>
-                                        <p class="text-primary">$45.00</p>
-                                        <button class="btn btn-primary">Ver Más</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-        {%endblock%}
+  <div class="container my-3">
+    <div class="d-flex flex-wrap justify-content-center bg-dark p-0 rounded">
+      <a href="#" class="btn btn-outline-light m-2">ELECTRODOMÉSTICOS</a>
+      <a href="#" class="btn btn-outline-light m-2">TELEVISIONES</a>
+      <a href="#" class="btn btn-outline-light m-2">AUDIO Y VIDEO</a>
+      <a href="#" class="btn btn-outline-light m-2">COMPUTADORAS</a>
+      <a href="#" class="btn btn-outline-light m-2">CELULARES</a>
+      <a href="#" class="btn btn-outline-light m-2">OFERTAS</a>
     </div>
+  </div>
 
-    
+
+  <h3 class="proposito text-center text-white">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos eum possimus quis, deserunt tempora tenetur
+    quaerat minus nihil obcaecati
+    consectetur dicta impedit officia sit vero, aspernatur excepturi at esse quo.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae possimus ab, sequi voluptatibus quo quod
+    optio vero dicta voluptate.
+    Dicta, voluptates corrupti accusamus earum doloremque recusandae nobis iste excepturi aspernatur?
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad dolores odit quo qui, repudiandae distinctio
+    soluta, laborum magni sapiente
+    delectus libero in autem totam fuga minima aspernatur explicabo! Minima, exercitationem.
+  </h3>
+
+  <!-- carrucel -->
+  <div class="container my-5">
+    <div id="productCarousel" class="carousel slide">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/aspiradoras/aspiradora-canister.png' %}"
+                  class="card-img-top" alt="Producto 1">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Aspiradora UVW</h5>
+                  <p class="card-text">Alta potencia, sin bolsa.</p>
+                  <p class="text-primary">$150.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/microondas/microondas-bgh.png' %}"
+                  class="card-img-top" alt="Producto 2">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Microondas DEF</h5>
+                  <p class="card-text">Con grill y 900W de potencia.</p>
+                  <p class="text-primary">$120.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/licuadoras/licuadora-atma.png' %}"
+                  class="card-img-top" alt="Producto 3">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Licuadora GHI</h5>
+                  <p class="card-text">Velocidad ajustable, 1.5L.</p>
+                  <p class="text-primary">$80.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img
+                  src="{% static 'img/imagenes-electrodomesticos/aspiradorasRobots/aspiradoraElectrica-philco.png' %}"
+                  class="card-img-top" alt="Producto 4">
+                <div class="card-body p-2">
+
+                  <h5 class="card-title">Tostadora JKL</h5>
+                  <p class="card-text">Capacidad para 2 rebanadas.</p>
+                  <p class="text-primary">$45.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------------------------------------------- -->
+
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img id="carta" src="{% static 'img/imagenes-electrodomesticos/cafeteras/cafetera-nespresso.png' %}"
+                  class="card-img-top" alt="Producto 5">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Aspiradora UVW</h5>
+                  <p class="card-text">Alta potencia, sin bolsa.</p>
+                  <p class="text-primary">$150.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/aires/aire-bgh.png' %}" class="card-img-top"
+                  alt="Producto 6">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Microondas DEF</h5>
+                  <p class="card-text">Con grill y 900W de potencia.</p>
+                  <p class="text-primary">$120.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/caloventores/caloventor-liliana.png' %}"
+                  class="card-img-top" alt="Producto 7">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Licuadora GHI</h5>
+                  <p class="card-text">Velocidad ajustable, 1.5L.</p>
+                  <p class="text-primary">$80.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/calefactores/calefactor-orbis.png' %}"
+                  class="card-img-top" alt="Producto 8">
+                <div class="card-body p-2">
+
+                  <h5 class="card-title">Tostadora JKL</h5>
+                  <p class="card-text">Capacidad para 2 rebanadas.</p>
+                  <p class="text-primary">$45.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- --- -->
+
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/planchas/plancha-atma.png' %}" class="card-img-top"
+                  alt="Producto 9">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Aspiradora UVW</h5>
+                  <p class="card-text">Alta potencia, sin bolsa.</p>
+                  <p class="text-primary">$150.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/secarropas/secarropas-candy.png' %}"
+                  class="card-img-top" alt="Producto 10">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Microondas DEF</h5>
+                  <p class="card-text">Con grill y 900W de potencia.</p>
+                  <p class="text-primary">$120.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/Tvs/tv-tlc.png' %}" class="card-img-top"
+                  alt="Producto 11">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Licuadora GHI</h5>
+                  <p class="card-text">Velocidad ajustable, 1.5L.</p>
+                  <p class="text-primary">$80.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/ventiladores/ventilador-liliana.png' %}"
+                  class="card-img-top" alt="Producto 12">
+                <div class="card-body p-2">
+
+                  <h5 class="card-title">Tostadora JKL</h5>
+                  <p class="card-text">Capacidad para 2 rebanadas.</p>
+                  <p class="text-primary">$45.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ------ -->
+
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/lavavajillas/lavavajillas-candy.png' %}"
+                  class="card-img-top" alt="Producto 13">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Aspiradora UVW</h5>
+                  <p class="card-text">Alta potencia, sin bolsa.</p>
+                  <p class="text-primary">$150.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/frezeers/frezeer-lacar.png' %}" class="card-img-top"
+                  alt="Producto 14">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Microondas DEF</h5>
+                  <p class="card-text">Con grill y 900W de potencia.</p>
+                  <p class="text-primary">$120.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/cocinas/cocina-morelli.png' %}" class="card-img-top"
+                  alt="Producto 15">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Licuadora GHI</h5>
+                  <p class="card-text">Velocidad ajustable, 1.5L.</p>
+                  <p class="text-primary">$80.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/mixers/mixer-atma.png' %}" class="card-img-top"
+                  alt="Producto 16">
+                <div class="card-body p-2">
+
+                  <h5 class="card-title">Tostadora JKL</h5>
+                  <p class="card-text">Capacidad para 2 rebanadas.</p>
+                  <p class="text-primary">$45.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- --- -->
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/heladeras/heladera-philco.png' %}"
+                  class="card-img-top" alt="Producto 17">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Aspiradora UVW</h5>
+                  <p class="card-text">Alta potencia, sin bolsa.</p>
+                  <p class="text-primary">$150.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/pavasElectricas/pava-atma.png' %}" class="card-img-top"
+                  alt="Producto 18">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Microondas DEF</h5>
+                  <p class="card-text">Con grill y 900W de potencia.</p>
+                  <p class="text-primary">$120.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/termoTanques/termotanque-populi.png' %}" class="card-img-top"
+                  alt="Producto 19">
+                <div class="card-body p-2">
+                  <h5 class="card-title">Licuadora GHI</h5>
+                  <p class="card-text">Velocidad ajustable, 1.5L.</p>
+                  <p class="text-primary">$80.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <div class="card">
+                <img src="{% static 'img/imagenes-electrodomesticos/lavarropas/lavarropa-drean.png' %}" class="card-img-top"
+                  alt="Producto 20">
+                <div class="card-body p-2">
+
+                  <h5 class="card-title">Tostadora JKL</h5>
+                  <p class="card-text">Capacidad para 2 rebanadas.</p>
+                  <p class="text-primary">$45.00</p>
+                  <button class="btn btn-primary">Ver Más</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  {%endblock%}
+</div>
