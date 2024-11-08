@@ -83,3 +83,9 @@ h2 {
     margin-bottom: 10px;
     /* Espacio debajo del título */
 }
+
+#carouselIndex {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 10%;
+}
