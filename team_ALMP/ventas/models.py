@@ -24,7 +24,7 @@ class Cliente(models.Model):
     apellido = models.CharField(max_length=50, verbose_name="Apellido")
     email = models.EmailField(verbose_name="Email")
     celular = models.IntegerField(verbose_name="Celular")
-    foto = models.ImageField(verbose_name="Foto")
+    foto = models.ImageField(verbose_name="Foto", upload_to="clientes")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now = True)
 
@@ -42,7 +42,7 @@ class Producto (models.Model):
     descripcion = models.TextField(verbose_name="Descripción")
     precio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Precio")
     cantidad=models.PositiveIntegerField(default=0, verbose_name="Cantidad")
-    imagen=models.ImageField(verbose_name="Imágen")
+    imagen=models.ImageField(verbose_name="Imágen", upload_to="productos")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
