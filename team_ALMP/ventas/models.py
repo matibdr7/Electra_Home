@@ -7,8 +7,8 @@ class Venta(models.Model):
     producto: str = models.CharField(max_length=200, verbose_name="Producto")
     cliente: str = models.CharField(max_length=50, verbose_name="Cliente")
     precio: float = models.PositiveIntegerField(verbose_name="Precio")
-    create: str = models.DateTimeField(auto_now_add=True, verbose_name="Crear")
-    update: str = models.DateTimeField(auto_now=True, verbose_name="Actualizar")
+    created: str = models.DateTimeField(auto_now_add=True, verbose_name="Crear")
+    updated: str = models.DateTimeField(auto_now=True, verbose_name="Actualizar")
 
     class Meta:
         verbose_name = "Venta"
@@ -21,7 +21,7 @@ class Venta(models.Model):
 #Cliente: nombre, apellido, email, celular, foto, created, updated.
 class Cliente(models.Model):
     nombre = models.CharField(max_length=50, verbose_name="Nombre")
-    apellido = models.CharField(max_lenght=50, verbose_name="Apellido")
+    apellido = models.CharField(max_length=50, verbose_name="Apellido")
     email = models.EmailField(verbose_name="Email")
     celular = models.IntegerField(verbose_name="Celular")
     foto = models.ImageField(verbose_name="Foto")
