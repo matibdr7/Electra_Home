@@ -3,7 +3,7 @@ from django.db import models
 # Venta: fecha, Producto, Cliente, precio, created, updated.
 # Create your models here.
 class Venta(models.Model):
-    fecha = models.CharField(max_length=10, verbose_name="Fecha")
+    fecha = models.DateTimeField(verbose_name="Fecha")
     producto = models.CharField(max_length=200, verbose_name="Producto")
     cliente = models.CharField(max_length=50, verbose_name="Cliente")
     precio = models.PositiveIntegerField(verbose_name="Precio")
