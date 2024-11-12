@@ -6,7 +6,7 @@ class Venta(models.Model):
     fecha = models.DateTimeField(verbose_name="Fecha")
     producto = models.CharField(max_length=200, verbose_name="Producto")
     cliente = models.CharField(max_length=50, verbose_name="Cliente")
-    precio = models.PositiveIntegerField(verbose_name="Precio")
+    precio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Precio")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Crear")
     updated = models.DateTimeField(auto_now=True, verbose_name="Actualizar")
 
@@ -16,7 +16,7 @@ class Venta(models.Model):
         ordering = ["-created"]
     
     def __str__(self):
-        return self.fecha
+        return f"Venta del {self.fecha.strftime('%d-%m-%Y %H:%M')} - Cliente: {self.cliente}"
 
 #Cliente: nombre, apellido, email, celular, foto, created, updated.
 class Cliente(models.Model):
