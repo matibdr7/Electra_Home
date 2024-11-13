@@ -116,4 +116,49 @@ h5.card-title {
         <span class="visually-hidden">Siguiente</span>
     </button>
 </div>
+
+<!-- Separador entre clientes y proveedor -->
+<hr class="my-4">
+
+<!-- Carrusel de Proveedores -->
+<div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for proveedor in proveedores %}
+            {% if forloop.counter0|divisibleby:4 %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <div class="row">
+            {% endif %}
+            
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ proveedor.nombre }}</h5>
+                                    <p class="card-title">{{ proveedor.contacto }}</p>
+                                    <p class="card-text">{{ proveedor.email }}</p>
+                                    <p class="card-text"><strong>Teléfono: {{ proveedor.telefono }}</strong></p>
+                                    <p class="card-text">Direccion: {{proveedor.direccion}}</p>
+                                    <a href="#" class="btn btn-primary">Ver Más</a>
+                                </div>
+                            </div>
+                        </div>
+
+            {% if forloop.counter|divisibleby:4 or forloop.last %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Controles del carrusel de proveedor -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#clientesCarrusel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#clientesCarrusel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+    </button>
+</div>
+
+
 {% endblock content %}
