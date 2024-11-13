@@ -26,6 +26,3 @@ def contacto(request):
 
 def productos(request):
     return render(request, 'core/productos.html')
-
-def modelos(request):
-    return render(request, 'core/modelos.html')
