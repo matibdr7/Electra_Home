@@ -5,4 +5,13 @@
 {% block title %}Modelos{% endblock %}
 
 {% block content %}
+
+
+{% for producto in productos%}
+    <div class = "row">
+        <div class="#">
+            <img src="{{producto.imagen.url}}">
+        </div>
+    </div>
+{% endfor %}
 {% endblock content %}

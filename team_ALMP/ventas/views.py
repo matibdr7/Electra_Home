@@ -6,6 +6,13 @@ def modelos(request):
     clientes = Cliente.objects.all()
     productos = Producto.objects.all()
     proveedores = Proveedor.objects.all()
-    return render(request, "ventas/modelos.html", {'ventas':ventas}, {'clientes':clientes}, {'productos':productos}, {'proveedores':proveedores})
 
+    contexto = {
+        'ventas': ventas,
+        'clientes': clientes,
+        'productos': productos,
+        'proveedores': proveedores,
+    }
+    
+    return render(request, "ventas/modelos.html", contexto)
 # Create your views here.
