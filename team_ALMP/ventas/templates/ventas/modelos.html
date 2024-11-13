@@ -8,9 +8,14 @@
 
 
 {% for producto in productos%}
-    <div class = "row">
-        <div class="#">
-            <img src="{{producto.imagen.url}}">
+
+    <div class="card">
+        <img id="cafetera" src="{{ producto.imagen.url }}" class="card-img-top" alt="Producto 5">
+        <div class="card-body p-2">
+          <h5 class="card-title">"{{producto.nombre}}"</h5>
+          <p class="card-text">"{{ producto.descripcion }}"</p>
+          <p class="text-primary">"{{producto.precio}}"</p>
+          <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalCafetera">Ver Más</button>
         </div>
     </div>
 {% endfor %}
