@@ -4,7 +4,7 @@
 {% block title %} Productos {%endblock%}
 
 {%block extra_css%}
-<link rel="stylesheet" href="{% static 'css/stylesIndex.css' %}">   
+ 
 {% endblock %}
 
 {% block extra_style %}
@@ -14,91 +14,32 @@
     h1{
         text-align: center;
     }
-
-  /* Estilo para las flechas de navegación del carrusel */
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    background-color: rgba(235, 32, 32, 0.5);
-    /* Color de fondo blanco semi-transparente */
-    border-radius: 70%;
-    /* Para hacer las flechas redondas */
-  }
-
-  .carousel-control-prev,
-  .carousel-control-next {
-    filter: invert(1);
-    /* Cambiar el color de las flechas a blanco */
-
-  }
-
-  .carousel-control-prev {
-    position: absolute;
-    top: 50%;
-    left: 1;
-    transform: translateY(-50%);
-  }
-
-  .carousel-control-next {
-    position: absolute;
-    top: 50%;
-    right: 1;
-    transform: translateY(-50%);
-  }
-
-  /* Estilos de las flechas de navegación */
-
-
-  /* Flecha izquierda */
-  .carousel-arrow.left {
-    left: 50%;
-  }
-
-  /* Flecha derecha */
-  .carousel-arrow.right {
-    right: 50%;
-  }
-
-  .card {
+    .card {
+    height: 450px;
     flex: 0 0 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
     margin: 10px;
     border-radius: 10px;
-    /* para cambiar el color de fondo de las cards */
     background-color: #9b9b8e;
-  }
+}
 
-  .car.car-img-top {
-    height: 100px;
-    object-fit: cover;
-  }
+.card-img-top {
+    height: 200px;
+    object-fit: contain;
+}
 
-  .carousel-inner .carousel-item img {
-    width: 30%;
-    height: 10%;
-    margin: 0 auto;
-  }
+h5.card-title {
+    font-size: 1.5rem;
+    text-align: center;
+}
 
-  .card img {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-  }
+.card p {
+    font-size: 1.3rem;
+    text-align: center;
+}
 
-  #mixer
-  {
-    width: 70px;
-  }
 
-  #ventilador
-  {
-    width: 75px;
-  }
-
-  #cafetera
-  {
-    width: 85px;
-  }
 
 </style>
 {% endblock extra_style %}
@@ -115,11 +56,11 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/aspiradoras/aspiradora-canister.png' %}"
                   class="card-img-top" alt="Producto 1">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Aspiradora UVW</h5>
                   <p class="card-text">Alta potencia, sin bolsa.</p>
                   <p class="text-primary">$150.00</p>
-                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAspiradora">Ver Más</button>
+                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAspiradora" >Ver Más</button>
                 </div>
               </div>
             </div>
@@ -127,7 +68,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/microondas/microondas-bgh.png' %}"
                   class="card-img-top" alt="Producto 2">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Microondas DEF</h5>
                   <p class="card-text">Con grill y 900W de potencia.</p>
                   <p class="text-primary">$120.00</p>
@@ -139,7 +80,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/licuadoras/licuadora-atma.png' %}"
                   class="card-img-top" alt="Producto 3">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Licuadora GHI</h5>
                   <p class="card-text">Velocidad ajustable, 1.5L.</p>
                   <p class="text-primary">$80.00</p>
@@ -152,7 +93,7 @@
                 <img
                   src="{% static 'img/imagenes-electrodomesticos/aspiradorasRobots/aspiradoraElectrica-philco.png' %}"
                   class="card-img-top" alt="Producto 4">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
 
                   <h5 class="card-title">Tostadora JKL</h5>
                   <p class="card-text">Capacidad para 2 rebanadas.</p>
@@ -172,7 +113,7 @@
               <div class="card">
                 <img id="cafetera" src="{% static 'img/imagenes-electrodomesticos/cafeteras/cafetera-nespresso.png' %}"
                   class="card-img-top" alt="Producto 5">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Cafetera</h5>
                   <p class="card-text">Alta potencia, sin bolsa.</p>
                   <p class="text-primary">$150.00</p>
@@ -184,7 +125,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/aires/aire-bgh.png' %}" class="card-img-top"
                   alt="Producto 6">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Aire</h5>
                   <p class="card-text">Con grill y 900W de potencia.</p>
                   <p class="text-primary">$120.00</p>
@@ -196,7 +137,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/caloventores/caloventor-liliana.png' %}"
                   class="card-img-top" alt="Producto 7">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Caloventor</h5>
                   <p class="card-text">Velocidad ajustable, 1.5L.</p>
                   <p class="text-primary">$80.00</p>
@@ -208,7 +149,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/calefactores/calefactor-orbis.png' %}"
                   class="card-img-top" alt="Producto 8">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Calefactor</h5>
                   <p class="card-text">Capacidad para 2 rebanadas.</p>
                   <p class="text-primary">$45.00</p>
@@ -227,7 +168,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/planchas/plancha-atma.png' %}" class="card-img-top"
                   alt="Producto 9">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Plancha</h5>
                   <p class="card-text">Alta potencia, sin bolsa.</p>
                   <p class="text-primary">$150.00</p>
@@ -239,7 +180,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/secarropas/secarropas-candy.png' %}"
                   class="card-img-top" alt="Producto 10">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Secarropas</h5>
                   <p class="card-text">Con grill y 900W de potencia.</p>
                   <p class="text-primary">$120.00</p>
@@ -251,7 +192,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/Tvs/tv-tlc.png' %}" class="card-img-top"
                   alt="Producto 11">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">TV</h5>
                   <p class="card-text">Velocidad ajustable, 1.5L.</p>
                   <p class="text-primary">$80.00</p>
@@ -263,7 +204,7 @@
               <div class="card">
                 <img id="ventilador" src="{% static 'img/imagenes-electrodomesticos/ventiladores/ventilador-liliana.png' %}"
                   class="card-img-top" alt="Producto 12">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Ventilador</h5>
                   <p class="card-text">Capacidad para 2 rebanadas.</p>
                   <p class="text-primary">$45.00</p>
@@ -282,7 +223,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/lavavajillas/lavavajillas-candy.png' %}"
                   class="card-img-top" alt="Producto 13">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Lavavajillas</h5>
                   <p class="card-text">Alta potencia, sin bolsa.</p>
                   <p class="text-primary">$150.00</p>
@@ -294,7 +235,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/frezeers/frezeer-lacar.png' %}" class="card-img-top"
                   alt="Producto 14">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Freezer</h5>
                   <p class="card-text">Con grill y 900W de potencia.</p>
                   <p class="text-primary">$120.00</p>
@@ -306,7 +247,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/cocinas/cocina-morelli.png' %}" class="card-img-top"
                   alt="Producto 15">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Cocina</h5>
                   <p class="card-text">Velocidad ajustable, 1.5L.</p>
                   <p class="text-primary">$80.00</p>
@@ -318,7 +259,7 @@
               <div class="card">
                 <img id="mixer" src="{% static 'img/imagenes-electrodomesticos/mixers/mixer-atma.png' %}" class="card-img-top"
                   alt="Producto 16">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Mixer</h5>
                   <p class="card-text">Capacidad para 2 rebanadas.</p>
                   <p class="text-primary">$45.00</p>
@@ -336,7 +277,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/heladeras/heladera-philco.png' %}"
                   class="card-img-top" alt="Producto 17">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Heladera</h5>
                   <p class="card-text">Alta potencia, sin bolsa.</p>
                   <p class="text-primary">$150.00</p>
@@ -348,7 +289,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/pavasElectricas/pava-atma.png' %}"
                   class="card-img-top" alt="Producto 18">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Pava</h5>
                   <p class="card-text">Con grill y 900W de potencia.</p>
                   <p class="text-primary">$120.00</p>
@@ -360,7 +301,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/termoTanques/termotanque-populi.png' %}"
                   class="card-img-top" alt="Producto 19">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Termotanque</h5>
                   <p class="card-text">Velocidad ajustable, 1.5L.</p>
                   <p class="text-primary">$80.00</p>
@@ -372,7 +313,7 @@
               <div class="card">
                 <img src="{% static 'img/imagenes-electrodomesticos/lavarropas/lavarropa-drean.png' %}"
                   class="card-img-top" alt="Producto 20">
-                <div class="card-body p-2">
+                <div class="card-body p-2 text-center">
                   <h5 class="card-title">Lavarropas</h5>
                   <p class="card-text">Capacidad para 2 rebanadas.</p>
                   <p class="text-primary">$45.00</p>
