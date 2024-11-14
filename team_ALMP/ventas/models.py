@@ -43,6 +43,8 @@ class Producto (models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Precio")
     cantidad=models.PositiveIntegerField(default=0, verbose_name="Cantidad")
     imagen=models.ImageField(verbose_name="Imágen", upload_to="productos")
+    imagenExtra1=models.ImageField(verbose_name="ImágenExtra1", upload_to="productos", null=True, blank=True)
+    imagenExtra2=models.ImageField(verbose_name="ImágenExtra2", upload_to="productos", null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
