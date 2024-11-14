@@ -111,7 +111,6 @@ h5.card-title {
                                     <h5 class="card-title">{{ cliente.nombre }} {{ cliente.apellido }}</h5>
                                     <p class="card-text">{{ cliente.email }}</p>
                                     <p class="card-text"><strong>Teléfono: {{ cliente.celular }}</strong></p>
-                                    <a href="#" class="btn btn-primary">Ver Más</a>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +155,6 @@ h5.card-title {
                                     <p class="card-text">{{ proveedor.email }}</p>
                                     <p class="card-text"><strong>Teléfono: {{ proveedor.telefono }}</strong></p>
                                     <p class="card-text">Direccion: {{proveedor.direccion}}</p>
-                                    <a href="#" class="btn btn-primary">Ver Más</a>
                                 </div>
                             </div>
                         </div>
@@ -198,7 +196,6 @@ h5.card-title {
                                     <p class="card-text">{{ venta.fecha }}</p>
                                     <p class="card-text">Cliente: {{ venta.cliente }}</p>
                                     <p class="card-text">Precio: {{ venta.precio }}</p>
-                                    <a href="#" class="btn btn-primary">Ver Más</a>
                                 </div>
                             </div>
                         </div>
@@ -244,16 +241,10 @@ h5.card-title {
                         <p><strong>Precio: $</strong> {{ producto.precio }}</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
         </div>
     {% endfor %}
 {% endblock %}
-
-
-
-
-
 {% endblock content %}
