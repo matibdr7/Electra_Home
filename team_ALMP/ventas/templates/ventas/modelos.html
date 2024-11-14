@@ -233,9 +233,12 @@ h5.card-title {
                     <div class="modal-body">
                         <!-- Contenedor de imágenes alineadas horizontalmente -->
                         <div class="d-flex gap-3">
-                            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3" style="max-width: 200px;">
-                            <img src="{{ producto.imagenExtra1.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3" style="max-width: 100px;">
-                            <img src="{{ producto.imagenExtra2.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3" style="max-width: 100px;">
+                            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" 
+                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                            <img src="{{ producto.imagenExtra1.url }}" alt="{{ producto.nombre }}" 
+                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                            <img src="{{ producto.imagenExtra2.url }}" alt="{{ producto.nombre }}" 
+                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
                         </div>
                         <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
                         <p><strong>Precio: $</strong> {{ producto.precio }}</p>
@@ -248,6 +251,8 @@ h5.card-title {
         </div>
     {% endfor %}
 {% endblock %}
+
+
 
 
 
