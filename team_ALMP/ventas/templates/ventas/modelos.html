@@ -52,6 +52,8 @@ h5.card-title {
 {% endblock %}
 {% block content %}
 <!-- Carrusel de Productos -->
+<h1 class="text-light">Productos</h1>
+
 <div id="productosCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for producto in productos %}
@@ -67,7 +69,7 @@ h5.card-title {
                                     <h5 class="card-title">{{ producto.nombre }}</h5>
                                     <p class="card-text">{{ producto.descripcion }}</p>
                                     <p class="card-text"><strong>Precio: ${{ producto.precio }}</strong></p>
-                                    <a href="#" class="btn btn-primary">Ver Más</a>
+                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProducto{{ producto.codigo }}">Ver Más</a>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +94,7 @@ h5.card-title {
 
 <!-- Separador entre productos y clientes -->
 <hr class="my-4">
-
+<h1 class="text-light">Clientes</h1>
 <!-- Carrusel de Clientes -->
 <div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -134,6 +136,8 @@ h5.card-title {
 
 <!-- Separador entre clientes y proveedor -->
 <hr class="my-4">
+
+<h1 class="text-light">Proveedores</h1>
 
 <!-- Carrusel de Proveedores -->
 <div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
@@ -177,7 +181,7 @@ h5.card-title {
 
 <!-- Separador entre clientes y proveedor -->
 <hr class="my-4">
-
+<h1 class="text-light">Ventas</h1>
 <!-- Carrusel de Ventas -->
 <div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -216,6 +220,30 @@ h5.card-title {
         <span class="visually-hidden">Siguiente</span>
     </button>
 </div>
+
+{% block modals %}
+    {% for producto in productos %}
+        <!-- Modal único para cada cliente -->
+        <div class="modal fade" id="modalProducto{{ producto.codigo }}"aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalClienteLabel{{ producto.codigo }}">{{ producto.nombre }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3">
+                        <p><strong>Descripcion:</strong> {{ producto.descripcion }}</p>
+                        <p><strong>Precio:</strong> {{ producto.precio }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
 
 
 {% endblock content %}
