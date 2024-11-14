@@ -78,7 +78,7 @@
               <h5 class="card-title">{{ producto.nombre }}</h5>
               <p class="card-text">{{ producto.descripcion }}</p>
               <p class="text-primary">${{ producto.precio }}</p>
-              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{ producto.id }}">Ver Más</button>
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProducto{{ producto.codigo }}">Ver Más</a>
             </div>
           </div>
         </div>
@@ -104,6 +104,36 @@
   
 </div>
 
+{% block modals %}
+    {% for producto in productos %} 
+        <div class="modal fade" id="modalProducto{{ producto.codigo }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalClienteLabel{{ producto.codigo }}">{{ producto.nombre }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Contenedor de imágenes alineadas horizontalmente -->
+                        <div class="d-flex gap-3">
+                            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" 
+                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                            <img src="{{ producto.imagenExtra1.url }}" alt="{{ producto.nombre }}" 
+                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                            <img src="{{ producto.imagenExtra2.url }}" alt="{{ producto.nombre }}" 
+                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                        </div>
+                        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+                        <p><strong>Precio: $</strong> {{ producto.precio }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
 
 
 {% endblock content %}
