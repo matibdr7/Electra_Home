@@ -4,17 +4,17 @@
 {% block title %} Productos {%endblock%}
 
 {%block extra_css%}
- 
+
 {% endblock %}
 
 {% block extra_style %}
 
 <style>
-
-h1{
+  h1 {
     text-align: center;
   }
-    .card {
+
+  .card {
     height: 300px;
     flex: 0 0 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -22,416 +22,88 @@ h1{
     margin: 10px;
     border-radius: 10px;
     background-color: #9b9b8e;
-}
+  }
 
-.card-img-top {
+  .card-img-top {
     height: 120px;
     object-fit: contain;
-}
+  }
 
-h5.card-title {
+  h5.card-title {
     font-size: 1rem;
     text-align: center;
-}
+  }
 
-.card p {
+  .card p {
     font-size: 0.9rem;
     text-align: center;
-}
+  }
 
-.carousel-control-prev, .carousel-control-next {
+  .carousel-control-prev,
+  .carousel-control-next {
     width: 5%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-}
+  }
 
-.carousel-control-prev {
-    left: -6%; /* Ajusta esta distancia según lo necesites */
-}
+  .carousel-control-prev {
+    left: -6%;
+    /* Ajusta esta distancia según lo necesites */
+  }
 
-.carousel-control-next {
-    right: -6%; /* Ajusta esta distancia según lo necesites */
-}
-
-
-
+  .carousel-control-next {
+    right: -6%;
+    /* Ajusta esta distancia según lo necesites */
+  }
 </style>
 {% endblock extra_style %}
 
 {% block content %}
-<h1 class="text-light" >PRODUCTOS</h1>
+<h1 class="text-light">PRODUCTOS</h1>
 <div class="container my-5">
-    <div id="productCarousel" class="carousel slide">
-      <div class="carousel-inner">
-
-        <div class="carousel-item active">
-          <div class="row justify-content-center">
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/aspiradoras/aspiradora-canister.png' %}"
-                  class="card-img-top" alt="Producto 1">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Aspiradora UVW</h5>
-                  <p class="card-text">Alta potencia, sin bolsa.</p>
-                  <p class="text-primary">$150.00</p>
-                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAspiradora" >Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/microondas/microondas-bgh.png' %}"
-                  class="card-img-top" alt="Producto 2">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Microondas DEF</h5>
-                  <p class="card-text">Con grill y 900W de potencia.</p>
-                  <p class="text-primary">$120.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalMicroondas">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/licuadoras/licuadora-atma.png' %}"
-                  class="card-img-top" alt="Producto 3">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Licuadora GHI</h5>
-                  <p class="card-text">Velocidad ajustable, 1.5L.</p>
-                  <p class="text-primary">$80.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalLicuadora">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img
-                  src="{% static 'img/imagenes-electrodomesticos/aspiradorasRobots/aspiradoraElectrica-philco.png' %}"
-                  class="card-img-top" alt="Producto 4">
-                <div class="card-body p-2 text-center">
-
-                  <h5 class="card-title">Tostadora JKL</h5>
-                  <p class="card-text">Capacidad para 2 rebanadas.</p>
-                  <p class="text-primary">$45.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalTostadora">Ver Más</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ---------------------------------------------- -->
-
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img id="cafetera" src="{% static 'img/imagenes-electrodomesticos/cafeteras/cafetera-nespresso.png' %}"
-                  class="card-img-top" alt="Producto 5">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Cafetera</h5>
-                  <p class="card-text">Alta potencia, sin bolsa.</p>
-                  <p class="text-primary">$150.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalCafetera">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/aires/aire-bgh.png' %}" class="card-img-top"
-                  alt="Producto 6">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Aire</h5>
-                  <p class="card-text">Con grill y 900W de potencia.</p>
-                  <p class="text-primary">$120.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalAire">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/caloventores/caloventor-liliana.png' %}"
-                  class="card-img-top" alt="Producto 7">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Caloventor</h5>
-                  <p class="card-text">Velocidad ajustable, 1.5L.</p>
-                  <p class="text-primary">$80.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalCaloventor">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/calefactores/calefactor-orbis.png' %}"
-                  class="card-img-top" alt="Producto 8">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Calefactor</h5>
-                  <p class="card-text">Capacidad para 2 rebanadas.</p>
-                  <p class="text-primary">$45.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalCalefactor">Ver Más</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- --- -->
-
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/planchas/plancha-atma.png' %}" class="card-img-top"
-                  alt="Producto 9">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Plancha</h5>
-                  <p class="card-text">Alta potencia, sin bolsa.</p>
-                  <p class="text-primary">$150.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalPlancha">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/secarropas/secarropas-candy.png' %}"
-                  class="card-img-top" alt="Producto 10">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Secarropas</h5>
-                  <p class="card-text">Con grill y 900W de potencia.</p>
-                  <p class="text-primary">$120.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalSecarropa">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/Tvs/tv-tlc.png' %}" class="card-img-top"
-                  alt="Producto 11">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">TV</h5>
-                  <p class="card-text">Velocidad ajustable, 1.5L.</p>
-                  <p class="text-primary">$80.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalTV">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img id="ventilador" src="{% static 'img/imagenes-electrodomesticos/ventiladores/ventilador-liliana.png' %}"
-                  class="card-img-top" alt="Producto 12">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Ventilador</h5>
-                  <p class="card-text">Capacidad para 2 rebanadas.</p>
-                  <p class="text-primary">$45.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalVentilador">Ver Más</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ------ -->
-
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/lavavajillas/lavavajillas-candy.png' %}"
-                  class="card-img-top" alt="Producto 13">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Lavavajillas</h5>
-                  <p class="card-text">Alta potencia, sin bolsa.</p>
-                  <p class="text-primary">$150.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalLavavajillas">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/frezeers/frezeer-lacar.png' %}" class="card-img-top"
-                  alt="Producto 14">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Freezer</h5>
-                  <p class="card-text">Con grill y 900W de potencia.</p>
-                  <p class="text-primary">$120.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalFreezer">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/cocinas/cocina-morelli.png' %}" class="card-img-top"
-                  alt="Producto 15">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Cocina</h5>
-                  <p class="card-text">Velocidad ajustable, 1.5L.</p>
-                  <p class="text-primary">$80.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalCocina">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img id="mixer" src="{% static 'img/imagenes-electrodomesticos/mixers/mixer-atma.png' %}" class="card-img-top"
-                  alt="Producto 16">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Mixer</h5>
-                  <p class="card-text">Capacidad para 2 rebanadas.</p>
-                  <p class="text-primary">$45.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalMixer">Ver Más</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- --- -->
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/heladeras/heladera-philco.png' %}"
-                  class="card-img-top" alt="Producto 17">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Heladera</h5>
-                  <p class="card-text">Alta potencia, sin bolsa.</p>
-                  <p class="text-primary">$150.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalHeladera">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/pavasElectricas/pava-atma.png' %}"
-                  class="card-img-top" alt="Producto 18">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Pava</h5>
-                  <p class="card-text">Con grill y 900W de potencia.</p>
-                  <p class="text-primary">$120.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalPava">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/termoTanques/termotanque-populi.png' %}"
-                  class="card-img-top" alt="Producto 19">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Termotanque</h5>
-                  <p class="card-text">Velocidad ajustable, 1.5L.</p>
-                  <p class="text-primary">$80.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalTermotanque">Ver Más</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 mb-3">
-              <div class="card">
-                <img src="{% static 'img/imagenes-electrodomesticos/lavarropas/lavarropa-drean.png' %}"
-                  class="card-img-top" alt="Producto 20">
-                <div class="card-body p-2 text-center">
-                  <h5 class="card-title">Lavarropas</h5>
-                  <p class="card-text">Capacidad para 2 rebanadas.</p>
-                  <p class="text-primary">$45.00</p>
-                  <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalLavarropas">Ver Más</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
-
-  {% block modals %}
-  {% with modal_id="modalAspiradora" modal_title="Aspiradora Canister Roja" modal_description="Esta elegante aspiradora canister en vibrante color rojo combina potencia y diseño compacto para facilitar la limpieza de todos los rincones del hogar..." img1_url='img/imagenes-electrodomesticos/aspiradoras/aspiradora-canister.png' img2_url='img/imagenes-electrodomesticos/aspiradoras/aspiradora-philco.png' img3_url='img/imagenes-electrodomesticos/aspiradoras/aspiradora-samsung.png' %}
-      {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalMicroondas"  modal_title="Microondas DEF" modal_description="Cocina tus alimentos en minutos con este eficiente microondas. Ideal para recalentar, cocinar o descongelar, ahorrando tiempo sin sacrificar sabor." img1_url='img/imagenes-electrodomesticos/microondas/microondas-bgh.png' img2_url='img/imagenes-electrodomesticos/microondas/microondas-tramontina.png' img3_url='img/imagenes-electrodomesticos/microondas/microondas-whirlpool.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalLicuadora"  modal_title="Licuadora GHI" modal_description="Prepara batidos, jugos y smoothies frescos con esta licuadora de alta potencia. Perfecta para toda la familia y para llevar un estilo de vida saludable" img1_url='img/imagenes-electrodomesticos/licuadoras/licuadora-atma.png' img2_url='img/imagenes-electrodomesticos/licuadoras/licuadora-winco.png' img3_url='img/imagenes-electrodomesticos/licuadoras/licuadora-peabody.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalTostadora"  modal_title="Aspiradora Inteligente JKL" modal_description="Limpia cada rincón de tu hogar sin esfuerzo con esta aspiradora inteligente. Su tecnología avanzada permite una limpieza autónoma y eficiente, ideal para mantener tus espacios impecables todos los días." img1_url='img/imagenes-electrodomesticos/aspiradorasRobots/aspiradoraElectrica-electrolux.png' img2_url='img/imagenes-electrodomesticos/aspiradorasRobots/aspiradoraElectrica-gatnic.png' img3_url='img/imagenes-electrodomesticos/aspiradorasRobots/aspiradoraElectrica-philco.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalCafetera" modal_title="Cafetera" modal_description="Comienza el día con una taza de café recién hecho. Esta cafetera te ofrece el sabor y aroma perfecto, justo como te gusta." img1_url='img/imagenes-electrodomesticos/cafeteras/cafetera-dolce.png' img2_url='img/imagenes-electrodomesticos/cafeteras/cafetera-moulinex.png' img3_url='img/imagenes-electrodomesticos/cafeteras/cafetera-nespresso.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalAire" modal_title="Aire" modal_description="Mantén tu hogar fresco y cómodo durante todo el año con este aire acondicionado de alto rendimiento. Ideal para los días más calurosos" img1_url='img/imagenes-electrodomesticos/aires/aire-bgh.png' img2_url='img/imagenes-electrodomesticos/aires/aire-hitachi.png' img3_url='img/imagenes-electrodomesticos/aires/aire-surrey.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalCaloventor" modal_title="Caloventor" modal_description="Disfruta de un ambiente cálido y acogedor con este caloventor compacto. Perfecto para mantener tu hogar a la temperatura ideal en invierno" img1_url='img/imagenes-electrodomesticos/caloventores/caloventor-electrolux.png' img2_url='img/imagenes-electrodomesticos/caloventores/caloventor-indelplas.png' img3_url='img/imagenes-electrodomesticos/caloventores/caloventor-liliana.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalCalefactor" modal_title="Calefactor" modal_description="Siente el calor instantáneo de este calefactor portátil. Ideal para pequeñas habitaciones y mantenerte abrigado en los días fríos" img1_url='img/imagenes-electrodomesticos/calefactores/calefactor-eskabe.png' img2_url='img/imagenes-electrodomesticos/calefactores/calefactor-exahome.png' img3_url='img/imagenes-electrodomesticos/calefactores/calefactor-orbis.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalPlancha" modal_title="Plancha" modal_description="Dale a tu ropa un acabado impecable con esta plancha de alta eficiencia. Elimina arrugas de manera rápida y sencilla para un look siempre perfecto." img1_url='img/imagenes-electrodomesticos/planchas/plancha-atma.png' img2_url='img/imagenes-electrodomesticos/planchas/plancha-axel.png' img3_url='img/imagenes-electrodomesticos/planchas/plancha-kanji.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalSecarropa" modal_title="Secarropas" modal_description="Olvídate de la espera con este secarropas rápido y eficiente. Ideal para tener tu ropa lista en poco tiempo, sin importar el clima." img1_url='img/imagenes-electrodomesticos/secarropas/secarropas-candy.png' img2_url='img/imagenes-electrodomesticos/secarropas/secarropas-drean.png' img3_url='img/imagenes-electrodomesticos/secarropas/secarropas-koh.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalTV" modal_title="TV" modal_description="Vive la experiencia de ver tus programas, películas y series favoritas con una calidad de imagen impresionante. Perfecto para disfrutar en familia" img1_url='img/imagenes-electrodomesticos/Tvs/tv-philips.png' img2_url='img/imagenes-electrodomesticos/Tvs/tv-rca.png' img3_url='img/imagenes-electrodomesticos/Tvs/tv-tlc.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalVentilador" modal_title="Ventilador" modal_description="Refresca tu hogar con este ventilador de alto rendimiento. Ideal para mantenerte cómodo durante los calurosos días de verano" img1_url='img/imagenes-electrodomesticos/ventiladores/ventilador-liliana.png' img2_url='img/imagenes-electrodomesticos/ventiladores/ventilador-peabody.png' img3_url='img/imagenes-electrodomesticos/ventiladores/ventilador-philco.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalLavavajillas" modal_title="Lavavajillas" modal_description="Libérate del trabajo de lavar los platos. Este lavavajillas ahorra tiempo y agua, dejándote más tiempo para disfrutar con los tuyos" img1_url='img/imagenes-electrodomesticos/lavavajillas/lavavajillas-candy.png' img2_url='img/imagenes-electrodomesticos/lavavajillas/lavavajillas-midea.png' img3_url='img/imagenes-electrodomesticos/lavavajillas/lavavajillas-whirlpool.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalFreezer" modal_title="Freezer" modal_description="Mantén tus alimentos frescos y bien conservados durante más tiempo con este freezer. Ideal para almacenar grandes cantidades de comida" img1_url='img/imagenes-electrodomesticos/frezeers/frezeer-inerlo.png' img2_url='img/imagenes-electrodomesticos/frezeers/frezeer-lacar.png' img3_url='img/imagenes-electrodomesticos/frezeers/frezeer-sigma.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
+  <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for producto in productos %}
+        {% if forloop.counter0|divisibleby:4 %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="container">
+              <div class="row justify-content-center">
+        {% endif %}
   
-  {% with modal_id="modalCocina" modal_title="Cocina" modal_description="Cocina tus recetas favoritas con facilidad gracias a esta cocina de alta calidad. Con quemadores potentes para preparar deliciosos platos" img1_url='img/imagenes-electrodomesticos/cocinas/cocina-electrolux.png' img2_url='img/imagenes-electrodomesticos/cocinas/cocina-fornax.png' img3_url='img/imagenes-electrodomesticos/cocinas/cocina-morelli.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+          <div class="card h-100">
+            <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+            <div class="card-body p-2 text-center">
+              <h5 class="card-title">{{ producto.nombre }}</h5>
+              <p class="card-text">{{ producto.descripcion }}</p>
+              <p class="text-primary">${{ producto.precio }}</p>
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{ producto.id }}">Ver Más</button>
+            </div>
+          </div>
+        </div>
+  
+        {% if forloop.counter|divisibleby:4 or forloop.last %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  
+    <!-- Controles del carrusel -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  
+</div>
 
-  {% with modal_id="modalMixer" modal_title="Mixer" modal_description="Mezcla, bate y licúa con facilidad gracias a este mixer de alta velocidad. Perfecto para preparar sopas, pasteles y batidos en segundos." img1_url='img/imagenes-electrodomesticos/mixers/mixer-atma.png' img2_url='img/imagenes-electrodomesticos/mixers/mixer-peabody.png' img3_url='img/imagenes-electrodomesticos/mixers/mixer-smartlife.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
 
-  {% with modal_id="modalHeladera" modal_title="Heladera" modal_description="Mantén tus alimentos frescos y organizados con esta heladera de gran capacidad. Ideal para familias que buscan comodidad y eficiencia" img1_url='img/imagenes-electrodomesticos/heladeras/heladera-hisense.png' img2_url='img/imagenes-electrodomesticos/heladeras/heladera-inverter.png' img3_url='img/imagenes-electrodomesticos/heladeras/heladera-philco.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalPava" modal_title="Pava" modal_description="Calienta agua rápidamente con esta pava eléctrica. Ideal para preparar infusiones, café o té al instante" img1_url='img/imagenes-electrodomesticos/pavasElectricas/pava-atma.png' img2_url='img/imagenes-electrodomesticos/pavasElectricas/pava-kanji.png' img3_url='img/imagenes-electrodomesticos/pavasElectricas/pava-philips.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalTermotanque" modal_title="Termotanque" modal_description="Disfruta de agua caliente todo el día con este termotanque de alto rendimiento. Ideal para duchas, lavabos y cocina sin interrupciones" img1_url='img/imagenes-electrodomesticos/termoTanques/termotanque-populi.png' img2_url='img/imagenes-electrodomesticos/termoTanques/termotanque-sherman.png' img3_url='img/imagenes-electrodomesticos/termoTanques/termotanque-zafiro.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% with modal_id="modalLavarropas" modal_title="Lavarropas" modal_description="Dale un descanso a tus manos con este lavarropas automático. Limpieza profunda para tu ropa en poco tiempo, ahorrando esfuerzo y energía" img1_url='img/imagenes-electrodomesticos/lavarropas/lavarropa-drean.png' img2_url='img/imagenes-electrodomesticos/lavarropas/lavarropa-eslabon.png' img3_url='img/imagenes-electrodomesticos/lavarropas/lavarropa-hisense.png'%}
-  {% include 'modals/ventanaModal.html' %}
-  {% endwith %}
-
-  {% endblock %}
 
 {% endblock content %}

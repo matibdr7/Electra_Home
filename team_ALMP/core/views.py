@@ -1,6 +1,7 @@
 from django.shortcuts import HttpResponse,render
 from django.core.mail import send_mail
 from django.conf import settings
+from ventas.models import Producto
 
 def index(request):
     return render(request, 'core/index.html')
@@ -25,4 +26,8 @@ def contacto(request):
     return render(request, 'core/contacto.html')
 
 def productos(request):
-    return render(request, 'core/productos.html')
+    productos = Producto.objects.all()
+    lista_productos = {
+        'productos': productos,
+    }
+    return render(request, 'core/productos.html', lista_productos)
