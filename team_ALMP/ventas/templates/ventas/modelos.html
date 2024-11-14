@@ -222,9 +222,8 @@ h5.card-title {
 </div>
 
 {% block modals %}
-    {% for producto in productos %}
-        <!-- Modal único para cada cliente -->
-        <div class="modal fade" id="modalProducto{{ producto.codigo }}"aria-hidden="true">
+    {% for producto in productos %} 
+        <div class="modal fade" id="modalProducto{{ producto.codigo }}" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -232,9 +231,14 @@ h5.card-title {
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
-                        <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3">
-                        <p><strong>Descripcion:</strong> {{ producto.descripcion }}</p>
-                        <p><strong>Precio:</strong> {{ producto.precio }}</p>
+                        <!-- Contenedor de imágenes alineadas horizontalmente -->
+                        <div class="d-flex gap-3">
+                            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3" style="max-width: 200px;">
+                            <img src="{{ producto.imagenExtra1.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3" style="max-width: 100px;">
+                            <img src="{{ producto.imagenExtra2.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3" style="max-width: 100px;">
+                        </div>
+                        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+                        <p><strong>Precio: $</strong> {{ producto.precio }}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
@@ -244,6 +248,7 @@ h5.card-title {
         </div>
     {% endfor %}
 {% endblock %}
+
 
 
 {% endblock content %}
