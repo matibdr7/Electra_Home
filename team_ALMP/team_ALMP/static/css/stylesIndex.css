@@ -38,10 +38,6 @@ body {
     /* Elimina márgenes innecesarios */
 }
 
-.navbar {
-    margin: auto;
-}
-
 .proposito {
     max-width: 1400px;
     margin: 0 auto;
