@@ -5,51 +5,9 @@
 {% block title %}Modelos{% endblock %}
 
 {%block extra_style%}
-
-<style>
-    .card {
-    height: 450px;
-    flex: 0 0 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin: 10px;
-    border-radius: 10px;
-    background-color: #9b9b8e;
-}
-
-.card-img-top {
-    height: 200px;
-    object-fit: contain;
-}
-
-h5.card-title {
-    font-size: 1rem;
-    text-align: center;
-}
-
-.card p {
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-.carousel-control-prev, .carousel-control-next {
-    width: 5%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.carousel-control-prev {
-    left: -6%; /* Ajusta esta distancia según lo necesites */
-}
-
-.carousel-control-next {
-    right: -6%; /* Ajusta esta distancia según lo necesites */
-}
-
-</style>
-
+<link rel="stylesheet" href="{% static 'css/stylesModelos.css' %}">
 {% endblock %}
+
 {% block content %}
 <!-- Carrusel de Productos -->
 <h1 class="text-light">Productos</h1>
