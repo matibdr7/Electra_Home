@@ -1,0 +1,37 @@
+
+{% load static %}
+
+{%block extra_css%}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{%endblock%}
+
+{%block content%}
+<div class="formulario">
+    
+    <h1> Registro de Usuario </h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="username" required>
+            <label>Nombre de usuario</label>
+        </div>
+        <div>
+            <input type="email" name="email" required>
+            <label>Correo Electrónico</label>
+        </div>
+        <div>
+            <input type="password" name="password1" required>
+            <label>Contraseña</label>
+        </div>
+        <div>
+            <input type="password" name="password2" required>
+            <label>Confirmar Contraseña</label>
+        </div>
+        <input type="submit" value="Registrarse">
+        <div class="registrarse">
+            ¿Ya tienes cuenta? <a href="#">Inicia sesión</a>
+        </div>
+
+    </form>
+</div>
+{%endblock content%}
