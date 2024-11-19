@@ -1,0 +1,162 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+/* Header */
+h1.text-light {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Carousel */
+.carousel-inner {
+  display: flex;
+}
+
+.carousel-item {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.carousel-item.active {
+  display: flex;
+}
+
+/* Cards */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 45%;
+  border: 1px solid #212529;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #696969;
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.text-primary {
+  color: #007bff;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #bbbaba;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.carousel-control-prev {
+  left: -110px;
+}
+.carousel-control-next {
+  right: -110px;
+}
+
+/* Modals */
+.modal-header {
+  border-bottom: 1px solid #0e71d4;
+}
+
+.modal-title {
+  font-size: 20px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-body img {
+  width: 33.33%;
+  max-height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.modal-body p {
+  margin: 5px 0;
+}
+
+.modal-footer {
+  border-top: 1px solid #dee2e6;
+}
+
+.btn-close {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+}
+
+.btn-close:before {
+  content: '×';
+  display: inline-block;
+  line-height: 1;
+}
+
+.modal-footer .btn-primary {
+  background-color: #007bff;
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@media (max-width: 991px) {
+  .carousel-inner {
+      height: 800px;
+  }
+}
+
+@media (max-width: 575px) {
+  .carousel-inner {
+      height: 1200px;
+  }
+}
+
+@media (max-width: 575px) {
+  .carousel-inner {
+      height: 1400px;
+  }
+}

@@ -4,83 +4,8 @@
 {% block title %} Productos {%endblock%}
 
 {%block extra_css%}
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/productos.css' %}">
 {% endblock %}
-
-{% block extra_style %}
-
-<style>
-  h1 {
-    text-align: center;
-  }
-
-  .card {
-    height: 300px;
-    flex: 0 0 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin: 10px;
-    border-radius: 10px;
-    background-color: #9b9b8e;
-  }
-
-  .card-img-top {
-    height: 120px;
-    object-fit: contain;
-  }
-
-  h5.card-title {
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .card p {
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: 5%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .carousel-control-prev {
-    left: -6%;
-    /* Ajusta esta distancia según lo necesites */
-  }
-
-  .carousel-control-next {
-    right: -6%;
-    /* Ajusta esta distancia según lo necesites */
-  }
-
-  .carousel-inner{
-    height: 400px; 
-  }
-
-  @media (max-width: 991px) {
-    .carousel-inner{
-      height: 800px; 
-    }
-  }
-
-  @media (max-width: 575px) {
-    .carousel-inner{
-      height: 1200px; 
-    }
-  }
-
-  @media (max-width: 575px) {
-    .carousel-inner{
-      height: 1400px; 
-    }
-  }
-
-</style>
-{% endblock extra_style %}
 
 {% block content %}
 <h1 class="text-light">PRODUCTOS</h1>
