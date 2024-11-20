@@ -1,9 +1,11 @@
-from django.shortcuts import HttpResponse,render
+from django.shortcuts import HttpResponse, redirect,render
 from django.core.mail import send_mail
 from django.conf import settings
 from ventas.models import Producto
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from django.contrib.auth import login
+from django.db import IntegrityError
 
 def index(request):
     return render(request, 'core/index.html')
@@ -46,7 +48,22 @@ def registro(request):
                 user = User.objects.create_user(username=request.POST['username'],
                 password=request.POST['password1'])
                 user.save()
-                return HttpResponse('Usuario creaado satisfactoriamente')
-            except:
-                return HttpResponse(' Usuario ya existente')
-        return HttpResponse ('Passwords no coinciden')
+                login (request, user)
+                return redirect('home')
+            except IntegrityError:
+                return render(request, 'register.html', {
+                    'form':UserCreationForm,
+                    'error': 'Usuario ya existente'
+                })
+        return render (request, 'register.html',{
+           'form': UserCreationForm,
+           'error': 'Contraseñas no coincidentes'})
+    
+def signin(request):
+   if request.method == "GET":
+       return render (request, 'signin.html', {
+           'form': AuthenticationForm
+       })
+   else: 
+       user = authenticate(
+                      request, username = request.POST ['username'], password = request.POST ['password'])
