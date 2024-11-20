@@ -7,5 +7,5 @@ from .views import ClienteCreate, ClienteUpdate
 urlpatterns = [
     path('modelos/', views.modelos, name="modelos"),
     path('create/', ClienteCreate.as_view(), name='create'),
-    path('update/<int:celular>/', ClienteUpdate.as_view(), name='update'),
+    path('update/<int:pk>/', ClienteUpdate.as_view(), name='update'),
 ]
