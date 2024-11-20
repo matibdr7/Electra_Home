@@ -1,0 +1,44 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+{% block title %} Filtrar proveedores {% endblock title %}
+
+{%block extra_style%}
+<link rel="stylesheet" href="{% static 'css/stylesBuscar.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h1>Buscar proveedor por nombre</h1>
+
+<!-- Barra de búsqueda -->
+<form class="d-flex ms-3 mt-3" style="flex-grow: 1;" method="get">
+  <input class="form-control me-2" type="text" name="busqueda_proveedor" placeholder="Buscar Proveedor..." aria-label="Search" value="{{ request.GET.busqueda_proveedor }}">
+  <button class="btn btn-outline-light" type="submit">Buscar</button>
+</form>
+
+
+<ul>
+  <div class="container">
+      <div class="row">
+        {% for proveedor in proveedores %}
+          <div class="col-md-3 col-sm-6 col-12 mb-4 mt-3">
+            <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">{{ proveedor.nombre }}</h5>
+                  <p class="card-title">{{ proveedor.contacto }}</p>
+                  <p class="card-text">{{ proveedor.email }}</p>
+                  <p class="card-text"><strong>Teléfono: {{ proveedor.telefono }}</strong></p>
+                  <p class="card-text">Direccion: {{proveedor.direccion}}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+</ul>
+
+{% endblock content %}
+
+
+

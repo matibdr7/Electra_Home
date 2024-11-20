@@ -40,3 +40,16 @@ def buscar_clientes(request):
     busqueda = request.GET.get('search', '')  # 'search' es el nombre del parámetro de la barra de búsqueda
     clientes = Cliente.objects.filter(nombre__contains=busqueda)
     return render(request, 'ventas/buscar_cliente.html', {'clientes': clientes})
+
+def buscar_proveedor(request):
+    busqueda_proveedor = request.GET.get('busqueda_proveedor', '')
+    if busqueda_proveedor:
+        proveedores = Proveedor.objects.filter(nombre__contains=busqueda_proveedor)
+    else:
+        proveedores = Proveedor.objects.all()
+    return render(request, 'ventas/buscar_proveedor.html', {'proveedores': proveedores})
+
+class ProveedorCreate(CreateView):
+    model = Proveedor
+    fields = ['nombre', 'contacto', 'telefono', 'email', 'direccion']
+    success_url = reverse_lazy('modelos')

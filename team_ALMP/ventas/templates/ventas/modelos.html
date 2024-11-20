@@ -55,7 +55,7 @@
 <h1 class="text-light">Clientes</h1>
 <!-- Carrusel de Clientes -->
 
-<a href="{% url 'create' %}">
+<a href="{% url 'createCliente' %}">
     <button type="button" class="btn btn-primary">
         Agregar nuevo cliente
     </button>    
@@ -82,7 +82,7 @@
                                     <h5 class="card-title">{{ cliente.nombre }} {{ cliente.apellido }}</h5>
                                     <p class="card-text">{{ cliente.email }}</p>
                                     <p class="card-text"><strong>Teléfono: {{ cliente.celular }}</strong></p>
-                                    <a href="{% url 'update' cliente.id %}">
+                                    <a href="{% url 'updateCliente' cliente.id %}">
                                         <button type="button" class="btn btn-primary">
                                             Modificar este cliente
                                         </button>    
@@ -113,6 +113,18 @@
 <hr class="my-4">
 
 <h1 class="text-light">Proveedores</h1>
+
+<a href="{% url 'createProveedor' %}">
+    <button type="button" class="btn btn-primary">
+        Agregar nuevo proveedor
+    </button>    
+</a>
+
+<a href="{% url 'buscar_proveedor'%}">
+    <button type="button" class="btn btn-primary">
+        Buscar proveedores por nombre
+    </button>    
+</a>
 
 <!-- Carrusel de Proveedores -->
 <div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
