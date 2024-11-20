@@ -61,6 +61,12 @@
     </button>    
 </a>
 
+<a href="{% url 'buscar_cliente'%}">
+    <button type="button" class="btn btn-primary">
+        Buscar clientes por nombre
+    </button>    
+</a>
+
 <div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for cliente in clientes %}

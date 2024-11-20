@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 def modelos(request):
     ventas = Venta.objects.all()
     clientes = Cliente.objects.all()
+    #clientes = Cliente.objects.filter(nombre__contains='fel')
     productos = Producto.objects.all()
     proveedores = Proveedor.objects.all()
 
@@ -34,10 +35,8 @@ class ClienteUpdate(UpdateView):
     def get_success_url(self):
         return reverse_lazy('modelos')
 
-class ClienteList(ListView):
-    model = Cliente
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(self, **kwargs)
-        context['now'] = timezone.now()
-        return context
+def buscar_clientes(request):
+    # Si hay un término de búsqueda en la solicitud
+    busqueda = request.GET.get('search', '')  # 'search' es el nombre del parámetro de la barra de búsqueda
+    clientes = Cliente.objects.filter(nombre__contains=busqueda)
+    return render(request, 'ventas/buscar_cliente.html', {'clientes': clientes})
