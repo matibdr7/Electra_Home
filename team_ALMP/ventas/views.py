@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Venta, Cliente, Producto, Proveedor
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse_lazy
 
 def modelos(request):
@@ -22,4 +22,12 @@ class ClienteCreate(CreateView):
     model = Cliente
     fields = ['nombre', 'apellido', 'email', 'celular', 'foto']
     success_url = reverse_lazy('modelos')
+    
+class ClienteUpdate(UpdateView):
+    model = Cliente
+    fields = ['nombre', 'apellido', 'email', 'celular', 'foto']
+    template_name_suffix = '_update_cliente'
+    
+    def get_success_url(self):
+        return reverse_lazy('modelos')+'?Actualizado'
     

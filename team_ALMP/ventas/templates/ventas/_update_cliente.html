@@ -1,23 +1,23 @@
 {% extends "core/base.html" %}
 {% load static %}
-{% block title %} Agregar Cliente {% endblock title %}
+{% block title %} Actualizar Cliente {% endblock title %}
 
 {%block extra_style%}
-<link rel="stylesheet" href="{% static 'css/stylesForm.css' %}">
+<link rel="stylesheet" href="{% static 'css/stylesModelos.css' %}">
 {% endblock %}
 
 
 {% block content %}
 <div class="card text-center">
     <div class="card-header">
-        Agregar Cliente
+        Modificar cliente
     </div>
     <div class="card-body">
         <form method="post"> 
             {% csrf_token %}
             {{ form.as_p }}
             <div class="text-center mt-4">
-                <input type="submit" class="btn btn-primary" value="Guardar">
+                <input type="submit" class="btn btn-primary" value="Actualizar" />
             </div>
         </form>
     </div>
