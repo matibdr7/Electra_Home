@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %} Agregar Cliente {% endblock title %}
+
+{%block extra_style%}
+<link rel="stylesheet" href="{% static 'css/stylesModelos.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="card text-center">
+    <div class="card-header">
+        Agregar Cliente
+    </div>
+    <div class="card-body">
+        <form method="post"> 
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center mt-4">
+                <input type="submit" class="btn btn-primary" value="Guardar">
+            </div>
+        </form>
+    </div>
+  </div>
+{% endblock content %}
+

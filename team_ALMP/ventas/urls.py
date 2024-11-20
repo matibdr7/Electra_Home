@@ -2,7 +2,9 @@ from . import views
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from .views import ClienteCreate
 
 urlpatterns = [
-    path('modelos/', views.modelos, name="modelos")
+    path('modelos/', views.modelos, name="modelos"),
+    path('create/', ClienteCreate.as_view(), name='create'),
 ]

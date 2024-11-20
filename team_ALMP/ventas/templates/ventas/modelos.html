@@ -54,6 +54,13 @@
 <hr class="my-4">
 <h1 class="text-light">Clientes</h1>
 <!-- Carrusel de Clientes -->
+
+<a href="{% url 'create' %}">
+    <button type="button" class="btn btn-primary">
+        Agregar nuevo cliente
+    </button>    
+</a>
+
 <div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for cliente in clientes %}
