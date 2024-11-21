@@ -65,8 +65,7 @@ def buscar_ventas(request):
             fecha_busqueda = datetime.strptime(busqueda_venta, '%Y-%m-%d').date()
             # Si la conversión tiene éxito, usamos fecha como filtro
             ventas = Venta.objects.filter(
-                Q(producto__nombre__icontains=busqueda_venta) |  # Filtro por nombre del producto
-                Q(fecha=fecha_busqueda)  # Filtro por fecha exacta
+                Q(producto__nombre__icontains=busqueda_venta)
             )
         except ValueError:
             # Si no es una fecha válida, buscamos solo por nombre
