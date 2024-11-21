@@ -28,7 +28,7 @@
                   <h5 class="card-title">{{ cliente.nombre }} {{ cliente.apellido }}</h5>
                   <p class="card-text">{{ cliente.email }}</p>
                   <p class="card-text"><strong>Teléfono: {{ cliente.celular }}</strong></p>
-                  <a href="{% url 'update' cliente.id %}">
+                  <a href="{% url 'updateCliente' cliente.id %}">
                     <button type="button" class="btn btn-primary">
                       Modificar este cliente
                     </button>

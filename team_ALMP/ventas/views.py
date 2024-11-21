@@ -54,6 +54,26 @@ class ProveedorCreate(CreateView):
     fields = ['nombre', 'contacto', 'telefono', 'email', 'direccion']
     success_url = reverse_lazy('modelos')
 
+class ProductoCreate(CreateView):
+    model = Producto
+    fields = ['codigo', 'nombre', 'descripcion', 'precio', 'cantidad', 'imagen', 'imagenExtra1', 'imagenExtra2', 'proveedor']
+    success_url = reverse_lazy('modelos')
+    
+def buscar_productos(request):
+    busqueda_productos = request.GET.get('busqueda_productos', '')
+    if busqueda_productos:
+        productos = Producto.objects.filter(nombre__contains=busqueda_productos)
+    else:
+        productos = Producto.objects.all()
+    return render(request, 'ventas/buscar_producto.html', {'productos' : productos})
+
+class ProductoUpdate(UpdateView):
+    model = Producto
+    fields = ['imagen', 'imagenExtra1', 'imagenExtra2']
+    template_name_suffix = '_update_producto'
+    
+    def get_success_url(self):
+        return reverse_lazy('modelos')
 
 def buscar_ventas(request):
     busqueda_venta = request.GET.get('q', '')

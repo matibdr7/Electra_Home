@@ -2,7 +2,7 @@ from . import views
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from .views import ClienteCreate, ClienteUpdate, ProveedorCreate
+from .views import ClienteCreate, ClienteUpdate, ProveedorCreate, ProductoCreate, ProductoUpdate
 
 urlpatterns = [
     path('modelos/', views.modelos, name="modelos"),
@@ -13,4 +13,7 @@ urlpatterns = [
     path('createProveedor/', ProveedorCreate.as_view(), name='createProveedor'),
     path('venta_search/', views.buscar_ventas, name="search_ventas"),
     path('venta_search_date/', views.buscar_ventas_por_fecha, name='search_ventas_fecha'),
+    path('createProducto/', ProductoCreate.as_view(), name='createProducto'),
+    path('buscar_producto/', views.buscar_productos, name='buscar_producto'),
+    path('updateProducto/<int:pk>/', ProductoUpdate.as_view(), name='updateProducto')
 ]
