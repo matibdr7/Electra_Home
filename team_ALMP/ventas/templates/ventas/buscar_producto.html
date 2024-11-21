@@ -1,0 +1,44 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+{% block title %} Filtrar proveedores {% endblock title %}
+
+{%block extra_style%}
+<link rel="stylesheet" href="{% static 'css/stylesBuscar.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h1>Buscar producto por nombre</h1>
+
+<!-- Barra de búsqueda -->
+<form class="d-flex ms-3 mt-3" style="flex-grow: 1;" method="get">
+  <input class="form-control me-2" type="text" name="busqueda_proveedor" placeholder="Buscar Producto..." aria-label="Search" value="{{ request.GET.busqueda_productos }}">
+  <button class="btn btn-outline-light" type="submit">Buscar</button>
+</form>
+
+
+<ul>
+  <div class="container">
+      <div class="row">
+        {% for producto in productos %}
+          <div class="col-md-3 col-sm-6 col-12 mb-4 mt-3">
+            <div class="card">
+              <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+              <div class="card-body">
+                  <h5 class="card-title">{{ producto.nombre }}</h5>
+                  <p class="card-text">{{ producto.descripcion }}</p>
+                  <p class="card-text"><strong>Precio: ${{ producto.precio }}</strong></p>
+                  <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProducto{{ producto.codigo }}">Ver Más</a>
+              </div>
+          </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+</ul>
+
+{% endblock content %}
+
+
+
