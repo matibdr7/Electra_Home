@@ -66,3 +66,11 @@ def buscar_productos(request):
     else:
         productos = Producto.objects.all()
     return render(request, 'ventas/buscar_producto.html', {'productos' : productos})
+
+class ProductoUpdate(UpdateView):
+    model = Producto
+    fields = ['imagen', 'imagenExtra1', 'imagenExtra2']
+    template_name_suffix = '_update_producto'
+    
+    def get_success_url(self):
+        return reverse_lazy('modelos')

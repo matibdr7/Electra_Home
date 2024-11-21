@@ -40,6 +40,11 @@
                                     <p class="card-text">{{ producto.descripcion }}</p>
                                     <p class="card-text"><strong>Precio: ${{ producto.precio }}</strong></p>
                                     <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProducto{{ producto.codigo }}">Ver Más</a>
+                                    <a href="{% url 'updateProducto' producto.id %}">
+                                        <button type="button" class="btn btn-primary mt-1">
+                                            Modificar imagenes
+                                        </button>    
+                                    </a>
                                 </div>
                             </div>
                         </div>
