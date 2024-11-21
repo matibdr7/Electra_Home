@@ -105,15 +105,6 @@ meses_completos = {
 
 
 def formatear_fecha_busqueda(fecha_str):
-    meses_abreviados = {
-        'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6,
-        'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12
-    }
-
-    meses_completos = {
-        'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 6,
-        'julio': 7, 'agosto': 8, 'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
-    }
 
     fecha_str = fecha_str.replace('.', '').replace(',', '').strip().lower()
 
