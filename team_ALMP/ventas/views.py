@@ -11,7 +11,6 @@ from django.urls import reverse_lazy
 def modelos(request):
     ventas = Venta.objects.all()
     clientes = Cliente.objects.all()
-    #clientes = Cliente.objects.filter(nombre__contains='fel')
     productos = Producto.objects.all()
     proveedores = Proveedor.objects.all()
 
@@ -23,7 +22,7 @@ def modelos(request):
     }
     
     return render(request, "ventas/modelos.html", contexto)
-# Create your views here.
+
 class ClienteCreate(CreateView):
     model = Cliente
     fields = ['nombre', 'apellido', 'email', 'celular', 'foto']
@@ -38,8 +37,7 @@ class ClienteUpdate(UpdateView):
         return reverse_lazy('modelos')
 
 def buscar_clientes(request):
-    # Si hay un término de búsqueda en la solicitud
-    busqueda = request.GET.get('search', '')  # 'search' es el nombre del parámetro de la barra de búsqueda
+    busqueda = request.GET.get('search', '')
     clientes = Cliente.objects.filter(nombre__contains=busqueda)
     return render(request, 'ventas/buscar_cliente.html', {'clientes': clientes})
 
@@ -58,17 +56,14 @@ class ProveedorCreate(CreateView):
 
 
 def buscar_ventas(request):
-    busqueda_venta = request.GET.get('q', '')  # Obtenemos el valor de la búsqueda
+    busqueda_venta = request.GET.get('q', '')
     if busqueda_venta:
-        # Intentamos convertir el texto de búsqueda a una fecha si es posible
         try:
             fecha_busqueda = datetime.strptime(busqueda_venta, '%Y-%m-%d').date()
-            # Si la conversión tiene éxito, usamos fecha como filtro
             ventas = Venta.objects.filter(
                 Q(producto__nombre__icontains=busqueda_venta)
             )
         except ValueError:
-            # Si no es una fecha válida, buscamos solo por nombre
             ventas = Venta.objects.filter(
                 Q(producto__nombre__icontains=busqueda_venta)
             )
@@ -77,70 +72,78 @@ def buscar_ventas(request):
 
     return render(request, 'ventas/venta_list.html', {'ventas': ventas})
 
+
+meses_abreviados = {
+    'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6,
+    'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12
+}
+
+meses_completos = {
+    'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 6,
+    'julio': 7, 'agosto': 8, 'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
+}
+
+
 def formatear_fecha_busqueda(fecha_str):
-    # Lista de abreviaturas de los meses y meses completos
     meses_abreviados = {
-        'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
-        'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
+        'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6,
+        'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12
     }
-    
+
     meses_completos = {
         'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 6,
         'julio': 7, 'agosto': 8, 'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
     }
 
-    # Limpiar la entrada de caracteres innecesarios (puntos, comas y espacios extra)
     fecha_str = fecha_str.replace('.', '').replace(',', '').strip().lower()
 
-    # Intentar identificar el formato de la fecha
     try:
-        # Intentar formato "Nov 15 2024" o "nov 15 2024"
-        if len(fecha_str.split()) == 3:
-            mes_abbr, dia, año = fecha_str.split()
+        partes = fecha_str.split()
+        if len(partes) == 3:
+            dia, mes, año = partes
             dia = int(dia)
             año = int(año)
             
-            # Convertir el mes abreviado a número
-            mes = meses_abreviados.get(mes_abbr.capitalize())
+            mes = meses_abreviados.get(mes[:3].lower(), meses_completos.get(mes))
             if mes:
-                return datetime(año, mes, dia).date()
+                return datetime(año, mes, dia)
+
+        if fecha_str in meses_abreviados or fecha_str in meses_completos:
+            mes = meses_abreviados.get(fecha_str[:3].lower(), meses_completos.get(fecha_str))
+            return datetime(datetime.now().year, mes, 1)
         
-        # Intentar formato "noviembre 14 2024"
-        if len(fecha_str.split()) == 3:
-            mes, dia, año = fecha_str.split()
-            dia = int(dia)
-            año = int(año)
-            
-            # Convertir el mes completo a número
-            mes = meses_completos.get(mes)
-            if mes:
-                return datetime(año, mes, dia).date()
+        if fecha_str.isdigit() and len(fecha_str) == 4:
+            return datetime(int(fecha_str), 1, 1)
 
-        # Intentar formato "15/11/24"
-        if fecha_str.count('/') == 2:
-            dia, mes, año = fecha_str.split('/')
-            return datetime(2000 + int(año), int(mes), int(dia)).date()  # Asumimos que el año es 2000 + año proporcionado
+        if fecha_str.isdigit() and len(fecha_str) <= 2:
+            dia = int(fecha_str)
+            return datetime(datetime.now().year, 1, dia)
 
-    except ValueError:
-        return None  # Si no se puede formatear correctamente, devolver None
-    
-    return None  # Si no coincide con ningún formato esperado
+    except Exception as e:
+        print(f"Error al procesar la fecha: {e}")
+        return None
+
+    return None
 
 def buscar_ventas_por_fecha(request):
-    fechas = []  # Inicializamos 'fechas' para que siempre tenga un valor
-    busqueda_fecha = request.GET.get('q', '')  # Obtener el valor de la búsqueda, por defecto vacío
-    
+    fechas = []
+    busqueda_fecha = request.GET.get('q', '').strip()
+
     if busqueda_fecha:
-        # Asegúrate de usar la función para formatear correctamente la fecha
         fecha_formateada = formatear_fecha_busqueda(busqueda_fecha)
-        
+
         if fecha_formateada:
-            # Comparar solo la fecha, sin tener en cuenta las horas
-            fechas = Venta.objects.filter(fecha__date=fecha_formateada)
+            if len(busqueda_fecha.split()) == 3:
+                fechas = Venta.objects.filter(fecha__date=fecha_formateada)
+            elif busqueda_fecha.isdigit() and len(busqueda_fecha) == 4:
+                fechas = Venta.objects.filter(fecha__year=fecha_formateada.year)
+            elif busqueda_fecha.lower()[:3] in meses_abreviados.keys():
+                fechas = Venta.objects.filter(fecha__month=fecha_formateada.month)
+            elif busqueda_fecha.isdigit() and len(busqueda_fecha) <= 2:
+                fechas = Venta.objects.filter(fecha__day=fecha_formateada.day)
         else:
-            fechas = []  # Si la fecha no es válida, dejamos 'fechas' vacío
+            fechas = []
     else:
-        # Si no hay búsqueda, mostramos todas las fechas
         fechas = Venta.objects.all()
 
     return render(request, 'ventas/venta_list_fecha.html', {'fechas': fechas})

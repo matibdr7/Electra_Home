@@ -11,9 +11,9 @@
 {% block content %}
 <h1>Busqueda por nombre</h1>
 
-<form method="get">
-  <input type="text" name="q" placeholder="buscar por nombre..." value="{{ request.GET.q }}">
-  <button type="submit">Buscar...</button>
+<form class="d-flex ms-3 mt-3" style="flex-grow: 1;" method="get">
+  <input class="form-control me-2" type="text" name="q" placeholder="buscar por nombre..." value="{{ request.GET.q }}">
+  <button class="btn btn-outline-light" type="submit">Buscar...</button>
 </form>
 
 <ul>
