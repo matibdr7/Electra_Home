@@ -1,10 +1,10 @@
 {% load static %}
-
+<title> Login </title>
 {%block extra_css%}
 <link rel="stylesheet" href="{% static 'css/signin.css' %}">
 {%endblock%}
 
-{{error}}
+
 <body>
     <div class ="formulario">
         <h1> Inicio de sesion </h1>
@@ -18,7 +18,7 @@
                 <input type ="password" required name="password1">
                 <label>Contraseña</label>
             </div>
-            <div class="recordar"> ¿Olvido su contraseña? </div>
+            {{error}}
             <input type="submit" value="Iniciar">
             <div class = "registrarse">
                 Realizar mi <a href ="{% url 'register' %}">registro</a> 
