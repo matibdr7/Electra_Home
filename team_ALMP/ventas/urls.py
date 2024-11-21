@@ -11,4 +11,5 @@ urlpatterns = [
     path('buscar_cliente/', views.buscar_clientes, name='buscar_cliente'),
     path('buscar_proveedor/', views.buscar_proveedor, name='buscar_proveedor'),
     path('createProveedor/', ProveedorCreate.as_view(), name='createProveedor'),
+    path('venta_search/', views.buscar_ventas, name="search_ventas"),
 ]

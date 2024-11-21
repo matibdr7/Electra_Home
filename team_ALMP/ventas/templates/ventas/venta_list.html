@@ -1,0 +1,35 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block title %} Buscar Ventas {% endblock title %}
+
+{%block extra_style%}
+<link rel="stylesheet" href="{% static 'css/stylesBuscar.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Busqueda por nombre y fecha</h1>
+
+<form method="get">
+  <input type="text" name="q" placeholder="buscar por nombre o fecha..." value="{{ request.GET.q }}">
+  <button type="submit">Buscar...</button>
+</form>
+
+<ul>
+  {% for venta in ventas %}
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ venta.producto }}</h5>
+            <p class="card-text">{{ venta.fecha }}</p>
+            <p class="card-text">Cliente: {{ venta.cliente }}</p>
+            <p class="card-text">Precio: {{ venta.precio }}</p>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <li>No se encontró resultado</li>
+  {% endfor %}
+</ul>
+{% endblock content %}

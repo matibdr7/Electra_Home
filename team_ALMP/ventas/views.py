@@ -3,6 +3,8 @@ from .models import Venta, Cliente, Producto, Proveedor
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.utils import timezone
+from django.db.models import Q
+from datetime import datetime
 
 from django.urls import reverse_lazy
 
@@ -53,3 +55,25 @@ class ProveedorCreate(CreateView):
     model = Proveedor
     fields = ['nombre', 'contacto', 'telefono', 'email', 'direccion']
     success_url = reverse_lazy('modelos')
+
+
+def buscar_ventas(request):
+    busqueda_venta = request.GET.get('q', '')  # Obtenemos el valor de la búsqueda
+    if busqueda_venta:
+        # Intentamos convertir el texto de búsqueda a una fecha si es posible
+        try:
+            fecha_busqueda = datetime.strptime(busqueda_venta, '%Y-%m-%d').date()
+            # Si la conversión tiene éxito, usamos fecha como filtro
+            ventas = Venta.objects.filter(
+                Q(producto__nombre__icontains=busqueda_venta) |  # Filtro por nombre del producto
+                Q(fecha=fecha_busqueda)  # Filtro por fecha exacta
+            )
+        except ValueError:
+            # Si no es una fecha válida, buscamos solo por nombre
+            ventas = Venta.objects.filter(
+                Q(producto__nombre__icontains=busqueda_venta)
+            )
+    else:
+        ventas = Venta.objects.all()
+
+    return render(request, 'ventas/venta_list.html', {'ventas': ventas})

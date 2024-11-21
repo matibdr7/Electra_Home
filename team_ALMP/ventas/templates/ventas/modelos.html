@@ -168,6 +168,18 @@
 <!-- Separador entre clientes y proveedor -->
 <hr class="my-4">
 <h1 class="text-light">Ventas</h1>
+<a href="{% url 'createCliente' %}">
+    <button type="button" class="btn btn-primary">
+        Busqueda por fecha
+    </button>    
+</a>
+
+<a href="{% url 'search_ventas' %}">
+    <button type="button" class="btn btn-primary">
+        Busqueda por nombre
+    </button>    
+</a>
+
 <!-- Carrusel de Ventas -->
 <div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
