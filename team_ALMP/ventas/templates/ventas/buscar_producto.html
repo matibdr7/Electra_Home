@@ -13,7 +13,7 @@
 
 <!-- Barra de búsqueda -->
 <form class="d-flex ms-3 mt-3" style="flex-grow: 1;" method="get">
-  <input class="form-control me-2" type="text" name="busqueda_proveedor" placeholder="Buscar Producto..." aria-label="Search" value="{{ request.GET.busqueda_productos }}">
+  <input class="form-control me-2" type="text" name="busqueda_productos" placeholder="Buscar Producto..." aria-label="Search" value="{{ request.GET.busqueda_productos }}">
   <button class="btn btn-outline-light" type="submit">Buscar</button>
 </form>
 
@@ -37,6 +37,36 @@
       </div>
     </div>
 </ul>
+
+{% block modals %}
+    {% for producto in productos %} 
+        <div class="modal fade" id="modalProducto{{ producto.codigo }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalClienteLabel{{ producto.codigo }}">{{ producto.nombre }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Contenedor de imágenes alineadas horizontalmente -->
+                        <div class="d-flex gap-3">
+                            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" 
+                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                            <img src="{{ producto.imagenExtra1.url }}" alt="{{ producto.nombre }}" 
+                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                            <img src="{{ producto.imagenExtra2.url }}" alt="{{ producto.nombre }}" 
+                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                        </div>
+                        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+                        <p><strong>Precio: $</strong> {{ producto.precio }}</p>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
 
 {% endblock content %}
 
