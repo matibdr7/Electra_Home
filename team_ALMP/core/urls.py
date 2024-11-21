@@ -8,6 +8,7 @@ urlpatterns = [
     path('acerca-de/', views.acercade, name="acercade"),
     path('contacto/', views.contacto, name="contacto"),
     path('productos/', views.productos, name="productos"),
-    path('register/', views.registro, name='register'),
+    path('register/', views.registro, name="register"),
     path('login/', views.signin, name="signin"),
+    path('signout/', views.signout, name='signout'),  # Ruta para cerrar sesión
 ]

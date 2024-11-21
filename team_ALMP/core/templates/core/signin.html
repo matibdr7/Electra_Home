@@ -11,11 +11,11 @@
         <form method ="post">
             {% csrf_token %}
             <div class="username">
-                <input type ="text" required>
+                <input type ="text" required name="username">
                 <label>Nombre de usuario</label>
             </div>
             <div class ="contrasena">
-                <input type ="password" required>
+                <input type ="password" required name="password1">
                 <label>Contraseña</label>
             </div>
             <div class="recordar"> ¿Olvido su contraseña? </div>

@@ -4,7 +4,7 @@ from django.conf import settings
 from ventas.models import Producto
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate, logout
 from django.db import IntegrityError
 
 def index(request):
@@ -51,19 +51,36 @@ def registro(request):
                 login (request, user)
                 return redirect('home')
             except IntegrityError:
-                return render(request, 'register.html', {
+                return render(request, 'core/register.html', {
                     'form':UserCreationForm,
                     'error': 'Usuario ya existente'
                 })
-        return render (request, 'register.html',{
+        return render (request, 'core/register.html',{
            'form': UserCreationForm,
            'error': 'Contraseñas no coincidentes'})
     
+
+def signout(request):
+    logout(request)
+    return redirect('home')
+    
 def signin(request):
    if request.method == "GET":
-       return render (request, 'signin.html', {
+       return render (request, 'core/signin.html', {
            'form': AuthenticationForm
        })
    else: 
        user = authenticate(
-                      request, username = request.POST ['username'], password = request.POST ['password'])
+           request, username = request.POST ['username'], 
+           password = request.POST ['password1'])
+
+       if user is None:
+           return render (request, 'core/signin.html', {
+           'form': AuthenticationForm,
+           'error': 'El usuario o contraseña es incorrecto'
+       })
+       else:
+           login(request, user)  # Inicia la sesión
+           return redirect('home')
+       
+
