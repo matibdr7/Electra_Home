@@ -12,4 +12,5 @@ urlpatterns = [
     path('buscar_proveedor/', views.buscar_proveedor, name='buscar_proveedor'),
     path('createProveedor/', ProveedorCreate.as_view(), name='createProveedor'),
     path('venta_search/', views.buscar_ventas, name="search_ventas"),
+    path('venta_search_date/', views.buscar_ventas_por_fecha, name='search_ventas_fecha'),
 ]

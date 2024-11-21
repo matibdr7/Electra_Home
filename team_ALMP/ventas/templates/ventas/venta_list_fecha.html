@@ -2,39 +2,40 @@
 
 {% load static %}
 
-{% block title %} Buscar Ventas {% endblock title %}
+{% block title %} Buscar Ventas por Fecha {% endblock %}
 
-{%block extra_style%}
+{% block extra_style %}
 <link rel="stylesheet" href="{% static 'css/stylesBuscar.css' %}">
 {% endblock %}
 
 {% block content %}
-<h1>Busqueda por fecha</h1>
+    <h1>Buscar Ventas por Fecha</h1>
+    
+    <form method="get" action="{% url 'search_ventas_fecha' %}">
+        <input type="text" name="q" placeholder="Ejemplo: Nov. 15, 2024" value="{{ request.GET.q }}">
+        <button type="submit">Buscar</button>
+    </form>
 
-<form method="get">
-  <input type="text" name="q" placeholder="buscar por nombre..." value="{{ request.GET.q }}">
-  <button type="submit">Buscar...</button>
-</form>
-
-<ul>
-  <div class="container">
-      <div class="row">
-        {% for venta in ventas %}
-        <div class="col-md-3">
-          <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ venta.producto }}</h5>
-                <p class="card-text">{{ venta.fecha }}</p>
-                <p class="card-text">Cliente: {{ venta.cliente }}</p>
-                <p class="card-text">Precio: {{ venta.precio }}</p>
+    <ul>
+      <div class="container">
+        <div class="row">
+          {% for venta in fechas %}
+            <div class="col-md-3">
+              <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ venta.producto }}</h5>
+                    <p class="card-text">{{ venta.fecha }}</p>
+                    <p class="card-text">Cliente: {{ venta.cliente }}</p>
+                    <p class="card-text">Precio: {{ venta.precio }}</p>
+                </div>
+              </div>
             </div>
-          </div>
+          {% empty %}
+              <p>No se encontraron ventas para la fecha seleccionada.</p>
+          {% endfor %}
         </div>
-        {% empty %}
-          <li>Nose encontró resultado</li>
-        {% endfor %}
       </div>
-    </div>
-</ul>
+    </ul>
+  
+{% endblock %}
 
-{% endblock content %}
