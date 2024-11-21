@@ -1,0 +1,40 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block title %} Buscar Ventas {% endblock title %}
+
+{%block extra_style%}
+<link rel="stylesheet" href="{% static 'css/stylesBuscar.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Busqueda por nombre</h1>
+
+<form class="d-flex ms-3 mt-3" style="flex-grow: 1;" method="get">
+  <input class="form-control me-2" type="text" name="q" placeholder="buscar por nombre..." value="{{ request.GET.q }}">
+  <button class="btn btn-outline-light" type="submit">Buscar...</button>
+</form>
+
+<ul>
+  <div class="container">
+      <div class="row">
+        {% for venta in ventas %}
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ venta.producto }}</h5>
+                <p class="card-text">{{ venta.fecha }}</p>
+                <p class="card-text">Cliente: {{ venta.cliente }}</p>
+                <p class="card-text">Precio: {{ venta.precio }}</p>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+          <li>Nose encontró resultado</li>
+        {% endfor %}
+      </div>
+    </div>
+</ul>
+
+{% endblock content %}

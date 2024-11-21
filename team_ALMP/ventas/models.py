@@ -1,4 +1,7 @@
 from django.db import models
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
+
 
 # Venta: fecha, Producto, Cliente, precio, created, updated.
 # Create your models here.

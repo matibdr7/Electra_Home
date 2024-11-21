@@ -12,6 +12,18 @@
 <!-- Carrusel de Productos -->
 <h1 class="text-light">Productos</h1>
 
+<a href="{% url 'createProducto' %}">
+    <button type="button" class="btn btn-primary">
+        Agregar nuevo producto
+    </button>    
+</a>
+
+<a href="{% url 'buscar_producto' %}">
+    <button type="button" class="btn btn-primary">
+        Buscar producto por nombre
+    </button>    
+</a>
+
 <div id="productosCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for producto in productos %}
@@ -28,6 +40,11 @@
                                     <p class="card-text">{{ producto.descripcion }}</p>
                                     <p class="card-text"><strong>Precio: ${{ producto.precio }}</strong></p>
                                     <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProducto{{ producto.codigo }}">Ver Más</a>
+                                    <a href="{% url 'updateProducto' producto.id %}">
+                                        <button type="button" class="btn btn-primary mt-1">
+                                            Modificar imagenes
+                                        </button>    
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -54,6 +71,19 @@
 <hr class="my-4">
 <h1 class="text-light">Clientes</h1>
 <!-- Carrusel de Clientes -->
+
+<a href="{% url 'createCliente' %}">
+    <button type="button" class="btn btn-primary">
+        Agregar nuevo cliente
+    </button>    
+</a>
+
+<a href="{% url 'buscar_cliente'%}">
+    <button type="button" class="btn btn-primary">
+        Buscar clientes por nombre
+    </button>    
+</a>
+
 <div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for cliente in clientes %}
@@ -69,6 +99,11 @@
                                     <h5 class="card-title">{{ cliente.nombre }} {{ cliente.apellido }}</h5>
                                     <p class="card-text">{{ cliente.email }}</p>
                                     <p class="card-text"><strong>Teléfono: {{ cliente.celular }}</strong></p>
+                                    <a href="{% url 'updateCliente' cliente.id %}">
+                                        <button type="button" class="btn btn-primary">
+                                            Modificar este cliente
+                                        </button>    
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -95,6 +130,18 @@
 <hr class="my-4">
 
 <h1 class="text-light">Proveedores</h1>
+
+<a href="{% url 'createProveedor' %}">
+    <button type="button" class="btn btn-primary">
+        Agregar nuevo proveedor
+    </button>    
+</a>
+
+<a href="{% url 'buscar_proveedor'%}">
+    <button type="button" class="btn btn-primary">
+        Buscar proveedores por nombre
+    </button>    
+</a>
 
 <!-- Carrusel de Proveedores -->
 <div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
@@ -138,6 +185,18 @@
 <!-- Separador entre clientes y proveedor -->
 <hr class="my-4">
 <h1 class="text-light">Ventas</h1>
+<a href="{% url 'search_ventas_fecha' %}">
+    <button type="button" class="btn btn-primary">
+        Busqueda por fecha
+    </button>    
+</a>
+
+<a href="{% url 'search_ventas' %}">
+    <button type="button" class="btn btn-primary">
+        Busqueda por nombre
+    </button>    
+</a>
+
 <!-- Carrusel de Ventas -->
 <div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">

@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %} Actualizar Cliente {% endblock title %}
+
+{%block extra_style%}
+<link rel="stylesheet" href="{% static 'css/stylesModelos.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="card text-center">
+    <div class="card-header">
+        Modificar cliente
+    </div>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center mt-4">
+                <input type="submit" class="btn btn-primary" value="Actualizar" />
+            </div>
+        </form>
+    </div>
+  </div>
+{% endblock content %}
+
