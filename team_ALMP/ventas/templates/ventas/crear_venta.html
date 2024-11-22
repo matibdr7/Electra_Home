@@ -4,6 +4,7 @@
 
 {%block extra_style%}
 <link rel="stylesheet" href="{% static 'css/stylesForm.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleFecha.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -11,7 +12,7 @@
     <div class="card-header">
         Agregar Venta
     </div>
-    <div class="card-body">
+    <div class="card-body" id="card-venta">
         <form method="post" enctype="multipart/form-data"> 
             {% csrf_token %}
             {{ form.as_p }}
