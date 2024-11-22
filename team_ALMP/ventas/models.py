@@ -64,7 +64,7 @@ class Venta(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name="Crear")
     updated = models.DateTimeField(auto_now=True, verbose_name="Actualizar")
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Cliente", null=True, blank=True)
-    producto = models.OneToOneField(Producto, on_delete=models.CASCADE, verbose_name="Producto", null=True, blank=True)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE, verbose_name="Producto", null=True, blank=True)
 
     class Meta:
         verbose_name = "Venta"
@@ -73,3 +73,4 @@ class Venta(models.Model):
     
     def __str__(self):
         return f"Venta del {self.fecha.strftime('%d-%m-%Y %H:%M')} - Cliente: {self.cliente}"
+
