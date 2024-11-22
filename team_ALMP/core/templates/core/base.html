@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark d-flex flex-column min-vh-100">
 
   <nav class="navbar navbar-dark bg-dark">
     <div class="container d-flex align-items-center justify-content-between">
@@ -85,7 +85,7 @@
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container flex-grow-1">
     {% block content %}
     <!--CONTENIDO DE LA PAGINA EN QUE SE POSICIONA EL USUARIO-->
     {%endblock%}
