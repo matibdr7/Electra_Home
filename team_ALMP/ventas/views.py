@@ -92,7 +92,8 @@ def buscar_ventas(request):
 
     return render(request, 'ventas/venta_list.html', {'ventas': ventas})
 
-
+# --------------------------------------------------------------------------------------------------------------------------------
+# Diccionarios para traducción de meses
 meses_abreviados = {
     'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6,
     'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12
@@ -103,10 +104,24 @@ meses_completos = {
     'julio': 7, 'agosto': 8, 'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
 }
 
+meses_espanol_a_ingles = {
+    'enero': 'jan', 'febrero': 'feb', 'marzo': 'mar', 'abril': 'apr',
+    'mayo': 'may', 'junio': 'jun', 'julio': 'jul', 'agosto': 'aug', 
+    'septiembre': 'sep', 'octubre': 'oct', 'noviembre': 'nov', 'diciembre': 'dec'
+}
+
+from datetime import datetime
 
 def formatear_fecha_busqueda(fecha_str):
-
+    # Limpiar la entrada
     fecha_str = fecha_str.replace('.', '').replace(',', '').strip().lower()
+
+    # Traducir el mes si está en español
+    palabras = fecha_str.split()
+    for i, palabra in enumerate(palabras):
+        if palabra in meses_espanol_a_ingles:
+            palabras[i] = meses_espanol_a_ingles[palabra]  # Reemplazar por el nombre en inglés
+    fecha_str = ' '.join(palabras)  # Reconstruir la fecha traducida
 
     try:
         partes = fecha_str.split()
@@ -119,8 +134,8 @@ def formatear_fecha_busqueda(fecha_str):
             if mes:
                 return datetime(año, mes, dia)
 
-        if fecha_str in meses_abreviados or fecha_str in meses_completos:
-            mes = meses_abreviados.get(fecha_str[:3].lower(), meses_completos.get(fecha_str))
+        if fecha_str in meses_completos.keys() or fecha_str in meses_abreviados.keys():
+            mes = meses_completos.get(fecha_str, meses_abreviados.get(fecha_str[:3]))
             return datetime(datetime.now().year, mes, 1)
         
         if fecha_str.isdigit() and len(fecha_str) == 4:
@@ -148,6 +163,8 @@ def buscar_ventas_por_fecha(request):
                 fechas = Venta.objects.filter(fecha__date=fecha_formateada)
             elif busqueda_fecha.isdigit() and len(busqueda_fecha) == 4:
                 fechas = Venta.objects.filter(fecha__year=fecha_formateada.year)
+            elif busqueda_fecha.lower() in meses_completos.keys():
+                fechas = Venta.objects.filter(fecha__month=fecha_formateada.month)
             elif busqueda_fecha.lower()[:3] in meses_abreviados.keys():
                 fechas = Venta.objects.filter(fecha__month=fecha_formateada.month)
             elif busqueda_fecha.isdigit() and len(busqueda_fecha) <= 2:
@@ -158,3 +175,10 @@ def buscar_ventas_por_fecha(request):
         fechas = Venta.objects.all()
 
     return render(request, 'ventas/venta_list_fecha.html', {'fechas': fechas})
+
+class CreateVenta(CreateView):
+    model = Venta
+    fields = ['fecha', 'precio', 'cliente', 'producto']
+    template_name = "ventas/crear_venta.html"
+    success_url = reverse_lazy('modelos')
+    
