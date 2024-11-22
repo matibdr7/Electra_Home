@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from .models import Venta, Cliente, Producto, Proveedor
 from django.views.generic.edit import CreateView, UpdateView
-from django.views.generic.list import ListView
-from django.utils import timezone
 from django.db.models import Q
 from datetime import datetime
 
