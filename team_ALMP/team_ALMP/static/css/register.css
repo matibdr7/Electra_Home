@@ -1,13 +1,13 @@
-body{
-    margin:0;
-    padding:0;
+body {
+    margin: 0;
+    padding: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background: linear-gradient(150deg, #212529, #495765);
     height: 100vh;
 
 }
 
-.formulario{
+.formulario {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -17,19 +17,19 @@ body{
     border-radius: 10px;
 }
 
-.formulario h1{
+.formulario h1 {
     text-align: center;
     padding: 0 0 20px 0;
     border-bottom: 1px solid silver;
 
 }
 
-.formulario form{
+.formulario form {
     padding: 0 40px;
     box-sizing: border-box;
 }
 
-form .username{
+form .username {
     position: relative;
     border-bottom: 2px solid #adadad;
     margin: 30px 0;
@@ -62,8 +62,8 @@ form .username{
     transition: 0.2s;
 }
 
-.formulario form input:focus ~ label,
-.formulario form input:valid ~ label {
+.formulario form input:focus~label,
+.formulario form input:valid~label {
     top: -5px;
     font-size: 14px;
     color: #000;
@@ -80,8 +80,8 @@ form .username{
 }
 
 input[type="submit"] {
-    background-color: #0d6efd !important; /* Forza el fondo morado */
-    color: white !important; /* Texto blanco */
+    background-color: #0d6efd !important;
+    color: white !important;
     border: 2px solid #0d6efd;
     border-radius: 50px;
     padding: 10px 30px;

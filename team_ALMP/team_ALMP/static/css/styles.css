@@ -2,7 +2,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* La página siempre ocupa la altura completa */
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -13,7 +13,7 @@ header {
 
 #content {
     background-color: #212529;
-    flex: 1; /* Toma el espacio disponible */
+    flex: 1;
     padding: 20px;
     color: white;
 }
@@ -30,7 +30,6 @@ footer {
     margin-top: auto;
 
 }
-
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {

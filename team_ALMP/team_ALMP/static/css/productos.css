@@ -1,18 +1,15 @@
-/* General Styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
   color: #343a40;
 }
 
-/* Header */
 h1.text-light {
   color: #ffffff;
   text-align: center;
   margin-bottom: 40px;
 }
 
-/* Cards */
 .card {
   display: flex;
   flex-direction: column;
@@ -49,7 +46,6 @@ h1.text-light {
   color: #007bff;
 }
 
-/* Buttons */
 .btn-primary {
   background-color: #007bff;
   border: none;
@@ -71,11 +67,11 @@ h1.text-light {
 .carousel-control-prev {
   left: -110px;
 }
+
 .carousel-control-next {
   right: -110px;
 }
 
-/* Modals */
 .modal-header {
   border-bottom: 1px solid #0e71d4;
 }
@@ -133,18 +129,18 @@ h1.text-light {
 
 @media (max-width: 991px) {
   .carousel-inner {
-      height: 800px;
+    height: 800px;
   }
 }
 
 @media (max-width: 575px) {
   .carousel-inner {
-      height: 1200px;
+    height: 1200px;
   }
 }
 
 @media (max-width: 570px) {
   .carousel-inner {
-      height: 1600px;
+    height: 1600px;
   }
 }

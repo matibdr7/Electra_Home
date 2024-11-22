@@ -13,9 +13,30 @@
         Agregar Venta
     </div>
     <div class="card-body" id="card-venta">
-        <form method="post" enctype="multipart/form-data"> 
+        <form method="post" enctype="multipart/form-data" action="{% url 'create_venta' %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="form-group">
+                <label for="id_fecha">Fecha:</label>
+                {{ form.fecha }}
+                {{ form.fecha.errors }}
+            </div>
+            <div class="form-group">
+                <label for="id_precio">Precio:</label>
+                {{ form.precio }}
+                {{ form.precio.errors }}
+            </div>
+            <div class="form-group">
+                <label for="id_cliente">Cliente:</label>
+                {{ form.cliente }}
+                {{ form.cliente.errors }}
+            </div>
+            <div class="form-group">
+                <label for="id_producto">Producto:</label>
+                {{ form.producto }}
+                {% if form.producto.errors %}
+                    <span class="errors">{{ form.producto.errors|join:", " }}</span>
+                {% endif %}
+            </div>
             <div class="text-center mt-4">
                 <input type="submit" class="btn btn-primary" value="Guardar">
             </div>

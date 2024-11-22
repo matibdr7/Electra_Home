@@ -1,5 +1,3 @@
-# Estos son los urls para trabajar dentro de la app core
-
 from team_ALMP.urls import path
 from . import views
 
@@ -10,5 +8,5 @@ urlpatterns = [
     path('productos/', views.productos, name="productos"),
     path('register/', views.registro, name="register"),
     path('login/', views.signin, name="signin"),
-    path('signout/', views.signout, name='signout'),  # Ruta para cerrar sesión
+    path('signout/', views.signout, name='signout'),
 ]

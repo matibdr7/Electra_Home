@@ -11,37 +11,34 @@
 
 <h1>Buscar cliente por nombre</h1>
 
-<!-- Barra de búsqueda -->
 <form class="d-flex ms-3 mt-3" style="flex-grow: 1;" method="get">
-    <input class="form-control me-2" type="text" name="search" placeholder="Buscar cliente..." aria-label="Search" value="{{ request.GET.search }}">
+    <input class="form-control me-2" type="text" name="search" placeholder="Buscar cliente..." aria-label="Search"
+        value="{{ request.GET.search }}">
     <button class="btn btn-outline-light" type="submit">Buscar</button>
 </form>
 
 <ul>
     <div class="container">
         <div class="row">
-          {% for cliente in clientes %}
+            {% for cliente in clientes %}
             <div class="col-md-3 col-sm-6 col-12 mb-4 mt-3">
-              <div class="card">
-                <img src="{{ cliente.foto.url }}" class="card-img-top" alt="{{ cliente.nombre }}">
-                <div class="card-body">
-                  <h5 class="card-title">{{ cliente.nombre }} {{ cliente.apellido }}</h5>
-                  <p class="card-text">{{ cliente.email }}</p>
-                  <p class="card-text"><strong>Teléfono: {{ cliente.celular }}</strong></p>
-                  <a href="{% url 'updateCliente' cliente.id %}">
-                    <button type="button" class="btn btn-primary">
-                      Modificar este cliente
-                    </button>
-                  </a>
+                <div class="card">
+                    <img src="{{ cliente.foto.url }}" class="card-img-top" alt="{{ cliente.nombre }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ cliente.nombre }} {{ cliente.apellido }}</h5>
+                        <p class="card-text">{{ cliente.email }}</p>
+                        <p class="card-text"><strong>Teléfono: {{ cliente.celular }}</strong></p>
+                        <a href="{% url 'updateCliente' cliente.id %}">
+                            <button type="button" class="btn btn-primary">
+                                Modificar este cliente
+                            </button>
+                        </a>
+                    </div>
                 </div>
-              </div>
             </div>
-          {% endfor %}
+            {% endfor %}
         </div>
-      </div>
-      
+    </div>
+
 </ul>
 {% endblock content %}
-
-
-

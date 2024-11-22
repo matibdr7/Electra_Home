@@ -10,8 +10,6 @@ from django.db import IntegrityError
 def index(request):
     return render(request, 'core/index.html')
 
-# Create your views here.
-
 def acercade(request):
     return render(request, 'core/acercade.html')
 
@@ -80,7 +78,5 @@ def signin(request):
            'error': 'El usuario o contraseña es incorrecto'
        })
        else:
-           login(request, user)  # Inicia la sesión
+           login(request, user)
            return redirect('home')
-       
-
