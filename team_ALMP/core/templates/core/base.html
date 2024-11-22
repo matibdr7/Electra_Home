@@ -36,10 +36,11 @@
       </button>
 
       <!-- Barra de búsqueda -->
-      <form class="d-flex ms-3" style="flex-grow: 1;">
-        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-        <button class="btn btn-outline-light me-5"  type="submit">Buscar</button>
+      <form class="d-flex ms-3" style="flex-grow: 1;" method="get" action="{% url 'buscar_producto' %}">
+        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" name="busqueda_productos">
+        <button class="btn btn-outline-light me-5" type="submit">Buscar</button>
       </form>
+      
 
       <!-- Logo a la derecha -->
       <div class="dropdown">
