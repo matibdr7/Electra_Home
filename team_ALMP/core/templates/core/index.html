@@ -14,49 +14,52 @@
 {%block content%}
 
 <div class="container my-3">
-  <div class="d-flex flex-wrap justify-content-center bg-dark p-0 rounded">
-    <a href="#" class="btn btn-outline-light m-2">ELECTRODOMÉSTICOS</a>
-    <a href="#" class="btn btn-outline-light m-2">TELEVISIONES</a>
-    <a href="#" class="btn btn-outline-light m-2">AUDIO Y VIDEO</a>
-    <a href="#" class="btn btn-outline-light m-2">COMPUTADORAS</a>
-    <a href="#" class="btn btn-outline-light m-2">CELULARES</a>
-    <a href="#" class="btn btn-outline-light m-2">OFERTAS</a>
-  </div>
+    <div class="d-flex flex-wrap justify-content-center bg-dark p-0 rounded">
+        <a href="#" class="btn btn-outline-light m-2">ELECTRODOMÉSTICOS</a>
+        <a href="#" class="btn btn-outline-light m-2">TELEVISIONES</a>
+        <a href="#" class="btn btn-outline-light m-2">AUDIO Y VIDEO</a>
+        <a href="#" class="btn btn-outline-light m-2">COMPUTADORAS</a>
+        <a href="#" class="btn btn-outline-light m-2">CELULARES</a>
+        <a href="#" class="btn btn-outline-light m-2">OFERTAS</a>
+    </div>
 </div>
 
 <h2 class="proposito text-center text-white m-3"> PROPÓSITO DE LA EMPRESA </h2>
 <h3 class="proposito text-center text-white m-3">
-  El propósito de Electra Home es ofrecer soluciones innovadoras y accesibles para el hogar, mejorando la calidad de
-  vida de sus clientes a través de productos de tecnología avanzada y alto rendimiento. La empresa se enfoca en
-  brindar electrodomésticos y artículos para el hogar que combinen funcionalidad, diseño y eficiencia energética,
-  buscando siempre la sostenibilidad y el respeto al medio ambiente. Su compromiso con la calidad y el servicio al
-  cliente es clave, ofreciendo asesoría personalizada y un soporte postventa confiable. Electra Home también promueve
-  la innovación constante, integrando las últimas tecnologías en sus productos para garantizar una experiencia única.
-  Con una visión inclusiva, la empresa se esfuerza por ser accesible para una amplia gama de clientes, sin comprometer
-  la excelencia de sus productos.
+    El propósito de Electra Home es ofrecer soluciones innovadoras y accesibles para el hogar, mejorando la calidad de
+    vida de sus clientes a través de productos de tecnología avanzada y alto rendimiento. La empresa se enfoca en
+    brindar electrodomésticos y artículos para el hogar que combinen funcionalidad, diseño y eficiencia energética,
+    buscando siempre la sostenibilidad y el respeto al medio ambiente. Su compromiso con la calidad y el servicio al
+    cliente es clave, ofreciendo asesoría personalizada y un soporte postventa confiable. Electra Home también promueve
+    la innovación constante, integrando las últimas tecnologías en sus productos para garantizar una experiencia única.
+    Con una visión inclusiva, la empresa se esfuerza por ser accesible para una amplia gama de clientes, sin comprometer
+    la excelencia de sus productos.
 </h3>
 <h2 class="proposito text-center text-white m-3 mt-3"> MARCAS SELECCIONADAS </h2>
 
 <div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{% static 'img/logo-Electrolux.png' %}"  class="d-block" style="width: 50%; margin: 0 auto;" alt="...">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'img/logo-Electrolux.png' %}" class="d-block" style="width: 50%; margin: 0 auto;"
+                alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'img/logo-philips.png' %}" class="d-block" style="width: 50%; margin: 0 auto;"
+                alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'img/samsung-logo.png' %}" class="d-block" style="width: 50%; margin: 0 auto;"
+                alt="...">
+        </div>
     </div>
-    <div class="carousel-item">
-      <img src="{% static 'img/logo-philips.png' %}"  class="d-block" style="width: 50%; margin: 0 auto;" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{% static 'img/samsung-logo.png' %}"  class="d-block" style="width: 50%; margin: 0 auto;" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
 {%endblock%}

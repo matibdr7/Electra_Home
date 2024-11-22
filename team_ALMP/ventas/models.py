@@ -1,16 +1,8 @@
 from django.db import models
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
+from django.core.validators import MinValueValidator
 
-
-# Venta: fecha, Producto, Cliente, precio, created, updated.
-# Create your models here.
-
-#Cliente y Venta: Relación uno a muchos, cada venta tiene un solo cliente, pero un cliente puede tener muchas ventas.
-#Producto y Venta: Uno a uno porque una venta puede estar relacionado a un producto y un producto a una venta
-#Proveedor y Producto: Uno a muchos porque un proveedor puede proveer muchos productos, pero un producto puede tener un solo proveedor
-
-#Cliente: nombre, apellido, email, celular, foto, created, updated.
 class Cliente(models.Model):
     nombre = models.CharField(max_length=50, verbose_name="Nombre")
     apellido = models.CharField(max_length=50, verbose_name="Apellido")
@@ -23,7 +15,7 @@ class Cliente(models.Model):
     class Meta:
         verbose_name = "cliente"
         verbose_name_plural = "clientes"
-        ordering = ["-created"] #Orden descendente
+        ordering = ["-created"]
         
     def __str__(self):
         return self.nombre
@@ -68,11 +60,11 @@ class Producto (models.Model):
 
 class Venta(models.Model):
     fecha = models.DateTimeField(verbose_name="Fecha")
-    precio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Precio")
+    precio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Precio", validators=[MinValueValidator(0.0)])
     created = models.DateTimeField(auto_now_add=True, verbose_name="Crear")
     updated = models.DateTimeField(auto_now=True, verbose_name="Actualizar")
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Cliente", null=True, blank=True)  # Relación uno a muchos
-    producto = models.OneToOneField(Producto, on_delete=models.CASCADE, verbose_name="Producto", null=True, blank=True)  # Relación uno a uno
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Cliente", null=True, blank=True)
+    producto = models.OneToOneField(Producto, on_delete=models.CASCADE, verbose_name="Producto", null=True, blank=True)
 
     class Meta:
         verbose_name = "Venta"

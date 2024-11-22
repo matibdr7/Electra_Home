@@ -10,77 +10,75 @@
 {% block content %}
 <h1 class="text-light">PRODUCTOS</h1>
 <div class="container my-5">
-  <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      {% for producto in productos %}
-        {% if forloop.counter0|divisibleby:4 %}
-          <div class="carousel-item {% if forloop.first %}active{% endif %}">
-            <div class="container">
-              <div class="row justify-content-center">
-        {% endif %}
-  
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-          <div class="card h-100">
-            <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
-            <div class="card-body p-2 text-center">
-              <h5 class="card-title">{{ producto.nombre }}</h5>
-              <p class="card-text">{{ producto.descripcion }}</p>
-              <p class="text-primary">${{ producto.precio }}</p>
-              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProducto{{ producto.codigo }}">Ver Más</a>
-            </div>
-          </div>
-        </div>
-  
-        {% if forloop.counter|divisibleby:4 or forloop.last %}
-              </div>
-            </div>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  
-    <!-- Controles del carrusel -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  
-</div>
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for producto in productos %}
+            {% if forloop.counter0|divisibleby:4 %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        {% endif %}
 
-{% block modals %}
-    {% for producto in productos %} 
-        <div class="modal fade" id="modalProducto{{ producto.codigo }}" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalClienteLabel{{ producto.codigo }}">{{ producto.nombre }}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Contenedor de imágenes alineadas horizontalmente -->
-                        <div class="d-flex gap-3">
-                            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" 
-                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
-                            <img src="{{ producto.imagenExtra1.url }}" alt="{{ producto.nombre }}" 
-                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
-                            <img src="{{ producto.imagenExtra2.url }}" alt="{{ producto.nombre }}" 
-                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                            <div class="card h-100">
+                                <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+                                <div class="card-body p-2 text-center">
+                                    <h5 class="card-title">{{ producto.nombre }}</h5>
+                                    <p class="card-text">{{ producto.descripcion }}</p>
+                                    <p class="text-primary">${{ producto.precio }}</p>
+                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modalProducto{{ producto.codigo }}">Ver Más</a>
+                                </div>
+                            </div>
                         </div>
-                        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
-                        <p><strong>Precio: $</strong> {{ producto.precio }}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+
+                        {% if forloop.counter|divisibleby:4 or forloop.last %}
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% endfor %}
         </div>
-    {% endfor %}
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+{% block modals %}
+{% for producto in productos %}
+<div class="modal fade" id="modalProducto{{ producto.codigo }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalClienteLabel{{ producto.codigo }}">{{ producto.nombre }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex gap-3">
+                    <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3"
+                        style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                    <img src="{{ producto.imagenExtra1.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3"
+                        style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                    <img src="{{ producto.imagenExtra2.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3"
+                        style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                </div>
+                <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+                <p><strong>Precio: $</strong> {{ producto.precio }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}
 
 

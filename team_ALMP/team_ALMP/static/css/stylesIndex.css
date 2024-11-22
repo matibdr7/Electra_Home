@@ -4,38 +4,24 @@ body {
 
 .carousel-container {
     max-width: 400px;
-    /* Ancho máximo del carrusel */
     margin: 25px auto;
-    /* Centramos el contenedor con márgenes */
-    /* margin-right: 590px; */
     border: 2px solid #ccc;
-    /* Borde del cuadro */
     border-radius: 10px;
-    /* Esquinas redondeadas */
     overflow: hidden;
-    /* Evita el desbordamiento del contenido */
     padding: 0;
-    /* Asegura que no haya relleno */
 }
 
 .carousel-inner {
     display: flex;
-    /* Permite alinear horizontalmente */
     justify-content: flex-start;
-    /* Alinea el contenido a la izquierda */
 }
 
 .carousel-item img {
     width: 100%;
-    /* Mantiene el ancho al 100% del contenedor */
     height: auto;
-    /* Mantiene la proporción de la imagen */
     object-fit: contain;
-    /* Ajusta la imagen sin recortar */
     display: block;
-    /* Asegura que la imagen se muestre como bloque */
     margin: 0;
-    /* Elimina márgenes innecesarios */
 }
 
 .proposito {
@@ -48,36 +34,25 @@ body {
 footer {
     display: flex;
     justify-content: center;
-    /* Centra horizontalmente */
     flex-wrap: wrap;
-    /* Permite que los elementos se ajusten en varias líneas */
     background-color: transparentSUCU;
-    /* Color de fondo del footer */
     padding: 20px;
-    /* Espacio interior */
 }
 
 footer>div {
     flex: 1;
-    /* Cada div tomará el mismo ancho */
     max-width: 250px;
-    /* Ancho máximo para cada sección */
     text-align: center;
-    /* Centra el texto dentro de cada div */
     margin: 10px;
-    /* Espacio entre cada sección */
 }
 
 footer img {
     max-width: 100%;
-    /* Asegura que las imágenes no excedan el ancho del contenedor */
     height: auto;
-    /* Mantiene la relación de aspecto */
 }
 
 h2 {
     margin-bottom: 10px;
-    /* Espacio debajo del título */
 }
 
 #carouselIndex {

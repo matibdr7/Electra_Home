@@ -15,44 +15,45 @@
 <a href="{% url 'createProducto' %}">
     <button type="button" class="btn btn-primary">
         Agregar nuevo producto
-    </button>    
+    </button>
 </a>
 
 <a href="{% url 'buscar_producto' %}">
     <button type="button" class="btn btn-primary">
         Buscar producto por nombre
-    </button>    
+    </button>
 </a>
 
 <div id="productosCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for producto in productos %}
-            {% if forloop.counter0|divisibleby:4 %}
-                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <div class="row">
-            {% endif %}
-            
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ producto.nombre }}</h5>
-                                    <p class="card-text">{{ producto.descripcion }}</p>
-                                    <p class="card-text"><strong>Precio: ${{ producto.precio }}</strong></p>
-                                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProducto{{ producto.codigo }}">Ver Más</a>
-                                    <a href="{% url 'updateProducto' producto.id %}">
-                                        <button type="button" class="btn btn-primary mt-1">
-                                            Modificar imagenes
-                                        </button>    
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+        {% if forloop.counter0|divisibleby:4 %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="row">
+                {% endif %}
 
-            {% if forloop.counter|divisibleby:4 or forloop.last %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ producto.nombre }}</h5>
+                            <p class="card-text">{{ producto.descripcion }}</p>
+                            <p class="card-text"><strong>Precio: ${{ producto.precio }}</strong></p>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#modalProducto{{ producto.codigo }}">Ver Más</a>
+                            <a href="{% url 'updateProducto' producto.id %}">
+                                <button type="button" class="btn btn-primary mt-1">
+                                    Modificar imagenes
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            {% endif %}
+
+                {% if forloop.counter|divisibleby:4 or forloop.last %}
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 
@@ -75,43 +76,43 @@
 <a href="{% url 'createCliente' %}">
     <button type="button" class="btn btn-primary">
         Agregar nuevo cliente
-    </button>    
+    </button>
 </a>
 
 <a href="{% url 'buscar_cliente'%}">
     <button type="button" class="btn btn-primary">
         Buscar clientes por nombre
-    </button>    
+    </button>
 </a>
 
 <div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for cliente in clientes %}
-            {% if forloop.counter0|divisibleby:4 %}
-                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <div class="row">
-            {% endif %}
-            
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img src="{{ cliente.foto.url }}" class="card-img-top" alt="{{ cliente.nombre }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ cliente.nombre }} {{ cliente.apellido }}</h5>
-                                    <p class="card-text">{{ cliente.email }}</p>
-                                    <p class="card-text"><strong>Teléfono: {{ cliente.celular }}</strong></p>
-                                    <a href="{% url 'updateCliente' cliente.id %}">
-                                        <button type="button" class="btn btn-primary">
-                                            Modificar este cliente
-                                        </button>    
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+        {% if forloop.counter0|divisibleby:4 %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="row">
+                {% endif %}
 
-            {% if forloop.counter|divisibleby:4 or forloop.last %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="{{ cliente.foto.url }}" class="card-img-top" alt="{{ cliente.nombre }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ cliente.nombre }} {{ cliente.apellido }}</h5>
+                            <p class="card-text">{{ cliente.email }}</p>
+                            <p class="card-text"><strong>Teléfono: {{ cliente.celular }}</strong></p>
+                            <a href="{% url 'updateCliente' cliente.id %}">
+                                <button type="button" class="btn btn-primary">
+                                    Modificar este cliente
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            {% endif %}
+
+                {% if forloop.counter|divisibleby:4 or forloop.last %}
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 
@@ -134,40 +135,38 @@
 <a href="{% url 'createProveedor' %}">
     <button type="button" class="btn btn-primary">
         Agregar nuevo proveedor
-    </button>    
+    </button>
 </a>
 
 <a href="{% url 'buscar_proveedor'%}">
     <button type="button" class="btn btn-primary">
         Buscar proveedores por nombre
-    </button>    
+    </button>
 </a>
 
 <!-- Carrusel de Proveedores -->
 <div id="proveedoresCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for proveedor in proveedores %}
-            {% if forloop.counter0|divisibleby:4 %}
-                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <div class="row">
-            {% endif %}
-            
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ proveedor.nombre }}</h5>
-                                    <p class="card-title">{{ proveedor.contacto }}</p>
-                                    <p class="card-text">{{ proveedor.email }}</p>
-                                    <p class="card-text"><strong>Teléfono: {{ proveedor.telefono }}</strong></p>
-                                    <p class="card-text">Direccion: {{proveedor.direccion}}</p>
-                                </div>
-                            </div>
+        {% if forloop.counter0|divisibleby:4 %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="row">
+                {% endif %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ proveedor.nombre }}</h5>
+                            <p class="card-title">{{ proveedor.contacto }}</p>
+                            <p class="card-text">{{ proveedor.email }}</p>
+                            <p class="card-text"><strong>Teléfono: {{ proveedor.telefono }}</strong></p>
+                            <p class="card-text">Direccion: {{proveedor.direccion}}</p>
                         </div>
-
-            {% if forloop.counter|divisibleby:4 or forloop.last %}
                     </div>
                 </div>
-            {% endif %}
+                {% if forloop.counter|divisibleby:4 or forloop.last %}
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 
@@ -188,19 +187,19 @@
 <a href="{% url 'search_ventas_fecha' %}">
     <button type="button" class="btn btn-primary">
         Busqueda por fecha
-    </button>    
+    </button>
 </a>
 
 <a href="{% url 'search_ventas' %}">
     <button type="button" class="btn btn-primary">
         Busqueda por nombre
-    </button>    
+    </button>
 </a>
 
 <a href="{% url 'create_venta' %}">
     <button type="button" class="btn btn-primary">
         Agregar Venta
-    </button>    
+    </button>
 </a>
 
 <!-- Carrusel de Ventas -->
@@ -211,17 +210,17 @@
                 <div class="carousel-item {% if forloop.first %}active{% endif %}">
                     <div class="row">
             {% endif %}
-            
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ venta.producto }}</h5>
-                                    <p class="card-text">{{ venta.fecha }}</p>
-                                    <p class="card-text">Cliente: {{ venta.cliente }}</p>
-                                    <p class="card-text">Precio: {{ venta.precio }}</p>
-                                </div>
-                            </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ venta.producto }}</h5>
+                            <p class="card-text">{{ venta.fecha }}</p>
+                            <p class="card-text">Cliente: {{ venta.cliente }}</p>
+                            <p class="card-text">Precio: {{ venta.precio }}</p>
                         </div>
+                    </div>
+                </div>
 
             {% if forloop.counter|divisibleby:4 or forloop.last %}
                     </div>
@@ -230,7 +229,6 @@
         {% endfor %}
     </div>
 
-    <!-- Controles del carrusel de proveedor -->
     <button class="carousel-control-prev" type="button" data-bs-target="#ventasCarrusel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Anterior</span>
@@ -242,32 +240,31 @@
 </div>
 
 {% block modals %}
-    {% for producto in productos %} 
-        <div class="modal fade" id="modalProducto{{ producto.codigo }}" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalClienteLabel{{ producto.codigo }}">{{ producto.nombre }}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Contenedor de imágenes alineadas horizontalmente -->
-                        <div class="d-flex gap-3">
-                            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" 
-                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
-                            <img src="{{ producto.imagenExtra1.url }}" alt="{{ producto.nombre }}" 
-                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
-                            <img src="{{ producto.imagenExtra2.url }}" alt="{{ producto.nombre }}" 
-                                 class="img-fluid mb-3" style="width: 33.33%; max-height: 150px; object-fit: contain;">
-                        </div>
-                        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
-                        <p><strong>Precio: $</strong> {{ producto.precio }}</p>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
+{% for producto in productos %}
+<div class="modal fade" id="modalProducto{{ producto.codigo }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalClienteLabel{{ producto.codigo }}">{{ producto.nombre }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex gap-3">
+                    <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3"
+                        style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                    <img src="{{ producto.imagenExtra1.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3"
+                        style="width: 33.33%; max-height: 150px; object-fit: contain;">
+                    <img src="{{ producto.imagenExtra2.url }}" alt="{{ producto.nombre }}" class="img-fluid mb-3"
+                        style="width: 33.33%; max-height: 150px; object-fit: contain;">
                 </div>
+                <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+                <p><strong>Precio: $</strong> {{ producto.precio }}</p>
+            </div>
+            <div class="modal-footer">
             </div>
         </div>
-    {% endfor %}
+    </div>
+</div>
+{% endfor %}
 {% endblock %}
 {% endblock content %}

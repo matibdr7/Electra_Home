@@ -31,9 +31,9 @@ h5.card-title {
 }
 
 .carousel-control-prev {
-    left: -6%; /* Ajusta esta distancia según lo necesites */
+    left: -6%;
 }
 
 .carousel-control-next {
-    right: -6%; /* Ajusta esta distancia según lo necesites */
+    right: -6%;
 }

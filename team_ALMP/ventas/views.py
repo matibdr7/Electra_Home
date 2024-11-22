@@ -3,6 +3,7 @@ from .models import Venta, Cliente, Producto, Proveedor
 from django.views.generic.edit import CreateView, UpdateView
 from django.db.models import Q
 from datetime import datetime
+from django import forms
 
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -92,8 +93,6 @@ def buscar_ventas(request):
 
     return render(request, 'ventas/venta_list.html', {'ventas': ventas})
 
-# --------------------------------------------------------------------------------------------------------------------------------
-# Diccionarios para traducción de meses
 meses_abreviados = {
     'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6,
     'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12
@@ -113,15 +112,13 @@ meses_espanol_a_ingles = {
 from datetime import datetime
 
 def formatear_fecha_busqueda(fecha_str):
-    # Limpiar la entrada
     fecha_str = fecha_str.replace('.', '').replace(',', '').strip().lower()
 
-    # Traducir el mes si está en español
     palabras = fecha_str.split()
     for i, palabra in enumerate(palabras):
         if palabra in meses_espanol_a_ingles:
-            palabras[i] = meses_espanol_a_ingles[palabra]  # Reemplazar por el nombre en inglés
-    fecha_str = ' '.join(palabras)  # Reconstruir la fecha traducida
+            palabras[i] = meses_espanol_a_ingles[palabra]
+    fecha_str = ' '.join(palabras)
 
     try:
         partes = fecha_str.split()
@@ -181,4 +178,16 @@ class CreateVenta(CreateView):
     fields = ['fecha', 'precio', 'cliente', 'producto']
     template_name = "ventas/crear_venta.html"
     success_url = reverse_lazy('modelos')
-    
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields['fecha'].widget = forms.DateTimeInput(attrs={
+            'type': 'datetime-local',
+            'class': 'form-control fecha-input',
+        })
+        form.fields['precio'].widget = forms.NumberInput(attrs={
+            'class': 'form-control',
+            'min': '0',
+            'step': '0.01'
+        })
+        return form
