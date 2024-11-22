@@ -31,26 +31,6 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-footer {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-color: transparentSUCU;
-    padding: 20px;
-}
-
-footer>div {
-    flex: 1;
-    max-width: 250px;
-    text-align: center;
-    margin: 10px;
-}
-
-footer img {
-    max-width: 100%;
-    height: auto;
-}
-
 h2 {
     margin-bottom: 10px;
 }
