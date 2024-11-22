@@ -3,6 +3,7 @@ from .models import Venta, Cliente, Producto, Proveedor
 from django.views.generic.edit import CreateView, UpdateView
 from django.db.models import Q
 from datetime import datetime
+from django import forms
 
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -176,9 +177,22 @@ def buscar_ventas_por_fecha(request):
 
     return render(request, 'ventas/venta_list_fecha.html', {'fechas': fechas})
 
+""" class CreateVenta(CreateView):
+    model = Venta
+    fields = ['fecha', 'precio', 'cliente', 'producto']
+    template_name = "ventas/crear_venta.html"
+    success_url = reverse_lazy('modelos')
+     """
 class CreateVenta(CreateView):
     model = Venta
     fields = ['fecha', 'precio', 'cliente', 'producto']
     template_name = "ventas/crear_venta.html"
     success_url = reverse_lazy('modelos')
-    
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields['fecha'].widget = forms.DateTimeInput(attrs={
+            'type': 'datetime-local',  # Selector nativo
+            'class': 'form-control',  # Clase CSS opcional
+        })
+        return form
