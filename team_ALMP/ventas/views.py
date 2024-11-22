@@ -7,7 +7,9 @@ from django.db.models import Q
 from datetime import datetime
 
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def modelos(request):
     ventas = Venta.objects.all()
     clientes = Cliente.objects.all()
