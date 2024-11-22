@@ -144,7 +144,7 @@
 </a>
 
 <!-- Carrusel de Proveedores -->
-<div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
+<div id="proveedoresCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for proveedor in proveedores %}
             {% if forloop.counter0|divisibleby:4 %}
@@ -172,11 +172,11 @@
     </div>
 
     <!-- Controles del carrusel de proveedor -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#clientesCarrusel" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#proveedoresCarrusel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Anterior</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#clientesCarrusel" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#proveedoresCarrusel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Siguiente</span>
     </button>
@@ -204,7 +204,7 @@
 </a>
 
 <!-- Carrusel de Ventas -->
-<div id="clientesCarrusel" class="carousel slide" data-bs-ride="carousel">
+<div id="ventasCarrusel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for venta in ventas %}
             {% if forloop.counter0|divisibleby:4 %}
@@ -231,11 +231,11 @@
     </div>
 
     <!-- Controles del carrusel de proveedor -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#clientesCarrusel" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#ventasCarrusel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Anterior</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#clientesCarrusel" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#ventasCarrusel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Siguiente</span>
     </button>
