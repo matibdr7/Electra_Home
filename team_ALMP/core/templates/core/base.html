@@ -31,7 +31,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-      <!-- Barra de búsqueda -->
       <form class="d-flex ms-3" style="flex-grow: 1;" method="get" action="{% url 'buscar_producto' %}">
         <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" name="busqueda_productos">
         <button class="btn btn-outline-light me-5" type="submit">Buscar</button>
@@ -81,7 +80,7 @@
 
   <div class="container flex-grow-1">
     {% block content %}
-    <!--CONTENIDO DE LA PAGINA EN QUE SE POSICIONA EL USUARIO-->
+
     {%endblock%}
   </div>
 
